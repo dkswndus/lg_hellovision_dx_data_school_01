@@ -1,0 +1,12 @@
+# 해지 예측 분석
+pandas
+pyarrow
+duckdb
+scikit-learn
+matplotlib
+numpy
+scipy
+
+# 모델 비교 (선택)
+lightgbm
+xgboost
