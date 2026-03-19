@@ -1,0 +1,20 @@
+# Reports (generated)
+결과보고서.md
+
+# Data (large files)
+data/raw/*.csv
+data/*.duckdb
+data/interim/*.parquet
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+.env
+
+# IDE
+.idea/
+*.swp
+*.swo
