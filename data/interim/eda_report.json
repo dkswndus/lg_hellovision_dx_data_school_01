@@ -1,0 +1,1454 @@
+{
+  "tables": {
+    "user_profile": {
+      "table": "user_profile",
+      "total_rows": 22476058,
+      "columns": {
+        "sha2_hash": {
+          "missing_pct": 0.0,
+          "unique_count": 2176146,
+          "sample_values": [
+            "a6ce2102e2a0350104d44e7154eaae315fb5f5635ee501f8a0",
+            "e245391cedab1a87714d1803f9c94f0f0cbd3f6a715d945007",
+            "5f45477d42f33e723422f7c61721e4b6d351d848fd7a36da21",
+            "2cbb61d0abbc8deb6b16a67ee42923b926d026d4ef5eebf34f",
+            "b1e05feb041ccda8314cf22dc1769b53e3500390bd74f00754"
+          ]
+        },
+        "SVC_USE_DAYS_GRP": {
+          "missing_pct": 0.0,
+          "unique_count": 5,
+          "sample_values": [
+            "24개월~ 36개월미만",
+            "12개월~24개월미만",
+            "6개월미만",
+            "36개월 이상",
+            "6개월~12개월미만"
+          ]
+        },
+        "MEDIA_NM_GRP": {
+          "missing_pct": 0.0,
+          "unique_count": 3,
+          "sample_values": [
+            "HD",
+            "UHD",
+            "기타"
+          ]
+        },
+        "PROD_NM_GRP": {
+          "missing_pct": 0.0,
+          "unique_count": 6,
+          "sample_values": [
+            "기타",
+            "이코노미",
+            "프리미엄",
+            "스탠다드",
+            "베이직"
+          ]
+        },
+        "PROD_OLD_YN": {
+          "missing_pct": 0.0,
+          "unique_count": 2,
+          "sample_values": [
+            "N",
+            "Y"
+          ]
+        },
+        "PROD_ONE_PLUS_YN": {
+          "missing_pct": 0.0,
+          "unique_count": 2,
+          "sample_values": [
+            "Y",
+            "N"
+          ]
+        },
+        "AGMT_KIND_NM": {
+          "missing_pct": 0.0,
+          "unique_count": 7,
+          "sample_values": [
+            "약정갱신",
+            "신규",
+            "약정연장",
+            "약정축소",
+            "재약정"
+          ]
+        },
+        "STB_RES_1M_YN": {
+          "missing_pct": 0.0,
+          "unique_count": 3,
+          "sample_values": [
+            "N",
+            "\"\"",
+            "Y"
+          ]
+        },
+        "SVOD_SCRB_CNT_GRP": {
+          "missing_pct": 0.0,
+          "unique_count": 5,
+          "sample_values": [
+            "2건",
+            "3건 이상",
+            "1건",
+            "기타",
+            "0건"
+          ]
+        },
+        "PAID_CHNL_CNT_GRP": {
+          "missing_pct": 0.0,
+          "unique_count": 5,
+          "sample_values": [
+            "0건",
+            "1건",
+            "기타",
+            "2건",
+            "3건 이상"
+          ]
+        },
+        "SCRB_PATH_NM_GRP": {
+          "missing_pct": 0.0,
+          "unique_count": 10,
+          "sample_values": [
+            "전략채널",
+            "현장경로",
+            "렌탈제휴",
+            "임직원",
+            "기타"
+          ]
+        },
+        "INHOME_RATE": {
+          "missing_pct": 0.0,
+          "unique_count": 13,
+          "sample_values": [
+            "10.0",
+            "40.0",
+            "20.0",
+            "\"\"",
+            "90.0"
+          ]
+        },
+        "AGMT_END_SEG": {
+          "missing_pct": 0.0,
+          "unique_count": 15,
+          "sample_values": [
+            "약정만료 1개월",
+            "약정만료전 3~6개월",
+            "약정만료후 1개월~2개월",
+            "약정만료전 6~9개월",
+            "약정만료후 6~9개월"
+          ]
+        },
+        "AGMT_END_YMD": {
+          "missing_pct": 0.0,
+          "unique_count": 6632,
+          "sample_values": [
+            "20150902",
+            "20170711",
+            "20221219",
+            "20191025",
+            "20240316"
+          ]
+        },
+        "TOTAL_USED_DAYS": {
+          "missing_pct": 0.0,
+          "unique_count": 13809,
+          "sample_values": [
+            "3965",
+            "197",
+            "185",
+            "144",
+            "2853"
+          ]
+        },
+        "TV_SCRB": {
+          "missing_pct": 0.0,
+          "unique_count": 62,
+          "sample_values": [
+            "2",
+            "1",
+            "13",
+            "11",
+            "38"
+          ]
+        },
+        "ANALOG_SCRB": {
+          "missing_pct": 0.0,
+          "unique_count": 20,
+          "sample_values": [
+            "3",
+            "7",
+            "1",
+            "2",
+            "13"
+          ]
+        },
+        "DIGITAL_SCRB": {
+          "missing_pct": 0.0,
+          "unique_count": 61,
+          "sample_values": [
+            "90",
+            "72",
+            "24",
+            "16",
+            "17"
+          ]
+        },
+        "TOTAL_INTERNET_SCRB": {
+          "missing_pct": 0.0,
+          "unique_count": 37,
+          "sample_values": [
+            "0",
+            "35",
+            "20",
+            "7",
+            "30"
+          ]
+        },
+        "GIGA_INTERNET_SCRB": {
+          "missing_pct": 0.0,
+          "unique_count": 14,
+          "sample_values": [
+            "0",
+            "7",
+            "4",
+            "18",
+            "1"
+          ]
+        },
+        "BUNDLE_YN": {
+          "missing_pct": 0.0,
+          "unique_count": 2,
+          "sample_values": [
+            "Y",
+            "N"
+          ]
+        },
+        "DIGITAL_GIGA_YN": {
+          "missing_pct": 0.0,
+          "unique_count": 2,
+          "sample_values": [
+            "N",
+            "Y"
+          ]
+        },
+        "DIGITAL_ALOG_YN": {
+          "missing_pct": 0.0,
+          "unique_count": 2,
+          "sample_values": [
+            "N",
+            "Y"
+          ]
+        },
+        "TV_I_CNT": {
+          "missing_pct": 0.0,
+          "unique_count": 70,
+          "sample_values": [
+            "8.0",
+            "20.0",
+            "112.0",
+            "71.0",
+            "14.0"
+          ]
+        },
+        "CH_LAST_DAYS_BF_GRP": {
+          "missing_pct": 0.0,
+          "unique_count": 6,
+          "sample_values": [
+            "일주일전",
+            "3주일전",
+            "3개월내없음",
+            "일주일내",
+            "4주일전"
+          ]
+        },
+        "VOC_TOTAL_MONTH1_YN": {
+          "missing_pct": 0.0,
+          "unique_count": 2,
+          "sample_values": [
+            "Y",
+            "N"
+          ]
+        },
+        "VOC_STOP_CANCEL_MONTH1_YN": {
+          "missing_pct": 0.0,
+          "unique_count": 2,
+          "sample_values": [
+            "N",
+            "Y"
+          ]
+        },
+        "AGE_GRP10": {
+          "missing_pct": 0.0,
+          "unique_count": 12,
+          "sample_values": [
+            "연령없음",
+            "60대",
+            "90대이상",
+            "40대",
+            "20대"
+          ]
+        },
+        "EMAIL_RECV_CLS_NM": {
+          "missing_pct": 0.0,
+          "unique_count": 5,
+          "sample_values": [
+            "전체거부",
+            "수신",
+            "광고거부",
+            "미응답",
+            "정보없음"
+          ]
+        },
+        "SMS_SEND_CLS_NM": {
+          "missing_pct": 0.0,
+          "unique_count": 5,
+          "sample_values": [
+            "미응답",
+            "수신",
+            "전체거부",
+            "정보없음",
+            "광고거부"
+          ]
+        },
+        "CH_HH_AVG_MONTH1": {
+          "missing_pct": 0.0,
+          "unique_count": 3110,
+          "sample_values": [
+            "5.19",
+            "5.0",
+            "7.55",
+            "8.29",
+            "5.6"
+          ]
+        },
+        "CH_25_RATIO_MONTH1": {
+          "missing_pct": 0.0,
+          "unique_count": 10002,
+          "sample_values": [
+            "1.99",
+            "2.18",
+            "4.76",
+            "6.74",
+            "1.37"
+          ]
+        },
+        "CH_25_RATIO_MEAN_3MM": {
+          "missing_pct": 0.0,
+          "unique_count": 9993,
+          "sample_values": [
+            "1.45",
+            "2.23",
+            "5.96",
+            "1.07",
+            "18.85"
+          ]
+        },
+        "CH_FAV_RNK1": {
+          "missing_pct": 0.0,
+          "unique_count": 14,
+          "sample_values": [
+            "연합뉴스TV",
+            "MBC",
+            "JTBC",
+            "SBS",
+            "기타"
+          ]
+        },
+        "KIDS_USE_PV_MONTH1": {
+          "missing_pct": 0.0,
+          "unique_count": 568,
+          "sample_values": [
+            "74.0",
+            "31.0",
+            "16.0",
+            "51.0",
+            "34.0"
+          ]
+        },
+        "NFX_USE_YN": {
+          "missing_pct": 0.0,
+          "unique_count": 2,
+          "sample_values": [
+            "Y",
+            "N"
+          ]
+        },
+        "YTB_USE_YN": {
+          "missing_pct": 0.0,
+          "unique_count": 2,
+          "sample_values": [
+            "N",
+            "Y"
+          ]
+        },
+        "p_mt": {
+          "missing_pct": 0.0,
+          "unique_count": 11,
+          "sample_values": [
+            "202307",
+            "202310",
+            "202309",
+            "202306",
+            "202302"
+          ]
+        }
+      }
+    },
+    "vod_content": {
+      "table": "vod_content",
+      "total_rows": 470096,
+      "columns": {
+        "asset_id": {
+          "missing_pct": 0.0,
+          "unique_count": 470096,
+          "sample_values": [
+            "M5139972LSVL05944701",
+            "M5148689LFOL32612501",
+            "M5148698LSGL28281701",
+            "M5148712LSGL37962701",
+            "M5148759LSVL85906001"
+          ]
+        },
+        "actr_disp": {
+          "missing_pct": 0.0,
+          "unique_count": 41776,
+          "sample_values": [
+            "양택조,김영환",
+            "-",
+            "스티븐 쉐임, 릴리아나",
+            "임소라,토미,보라,김지성",
+            "사카타 요시케이지,히나타 코미네"
+          ]
+        },
+        "asset_nm": {
+          "missing_pct": 0.0,
+          "unique_count": 360206,
+          "sample_values": [
+            "의림지뜰의 겨울가뭄",
+            "유럽 현역 여배우의 고탄력 바디",
+            "실제 일반 미시녀들 꼬셔서 포르노 촬영",
+            "마구잡이로 주물러진 일본 새댁",
+            "남편 상사 거친맛에 혼절한 나오"
+          ]
+        },
+        "asset_prod": {
+          "missing_pct": 0.0,
+          "unique_count": 3,
+          "sample_values": [
+            "RVOD",
+            "SVOD",
+            "FOD"
+          ]
+        },
+        "aud": {
+          "missing_pct": 100.0,
+          "unique_count": 0,
+          "sample_values": []
+        },
+        "audience_cnt": {
+          "missing_pct": 100.0,
+          "unique_count": 0,
+          "sample_values": []
+        },
+        "broad_ymd": {
+          "missing_pct": 0.73,
+          "unique_count": 10575,
+          "sample_values": [
+            "20221221",
+            "20230207",
+            "20230509",
+            "20230411",
+            "20230217"
+          ]
+        },
+        "category": {
+          "missing_pct": 0.26,
+          "unique_count": 20122,
+          "sample_values": [
+            "해외드라마/아시아드라마/언어부(상)",
+            "영화월정액관/캐치온디맨드/(HD)드라마",
+            "영화월정액관/캐치온디맨드/(HD)공포.스릴러",
+            "애니메이션/애니초이스/버라이어티/(더빙)이리지니TV",
+            "에로틱 성인/허니TV/일본AV음란걸"
+          ]
+        },
+        "chapter": {
+          "missing_pct": 0.26,
+          "unique_count": 17483,
+          "sample_values": [
+            "00:47:44:00,END",
+            "00:46:17:00,END",
+            "02:04:42:00,END",
+            "01:05:03:00,END",
+            "01:00:53:00,END"
+          ]
+        },
+        "created": {
+          "missing_pct": 0.0,
+          "unique_count": 465576,
+          "sample_values": [
+            "20220208051655",
+            "20220205050638",
+            "20220205051526",
+            "20230112062759",
+            "20221109052701"
+          ]
+        },
+        "created_by": {
+          "missing_pct": 0.0,
+          "unique_count": 11,
+          "sample_values": [
+            "VODIN:1.3.2",
+            "migration",
+            "migration4",
+            "vodingestsvr",
+            "VODIN:1.3.1"
+          ]
+        },
+        "crt_ymd": {
+          "missing_pct": 0.51,
+          "unique_count": 2218,
+          "sample_values": [
+            "2022-12-02",
+            "2022-07-14",
+            "2022-07-01",
+            "2022-08-28",
+            "2022-08-26"
+          ]
+        },
+        "ct_cl": {
+          "missing_pct": 0.0,
+          "unique_count": 15,
+          "sample_values": [
+            "성인",
+            "공연/음악",
+            "교육",
+            "스포츠",
+            "라이프"
+          ]
+        },
+        "cts_id": {
+          "missing_pct": 0.28,
+          "unique_count": 468778,
+          "sample_values": [
+            "CCS100353",
+            "CCS100383",
+            "CCS100441",
+            "CCS100462",
+            "CCS100560"
+          ]
+        },
+        "description": {
+          "missing_pct": 0.0,
+          "unique_count": 374588,
+          "sample_values": [
+            "소재 : [채팅앱으로 꼬신 상큼발랄 시부야녀] Asset Title",
+            "소재 : [낯선 남자에게 젖 물리는 아내] Asset Title",
+            "소재 : [포텐 터진 고인물 아저씨] Asset Title",
+            "소재 : [누구나 하고 싶은 G컵녀] Asset Title",
+            "소재 : [성욕에 미친 일본 형수님] Asset Title"
+          ]
+        },
+        "director": {
+          "missing_pct": 0.01,
+          "unique_count": 16766,
+          "sample_values": [
+            "김환",
+            "최찬호",
+            "시오후키",
+            "흑자",
+            "빅토르 코사코프스키"
+          ]
+        },
+        "disp_as_lst_chnc": {
+          "missing_pct": 99.23,
+          "unique_count": 1,
+          "sample_values": [
+            "0"
+          ]
+        },
+        "disp_as_new": {
+          "missing_pct": 99.23,
+          "unique_count": 1,
+          "sample_values": [
+            "0"
+          ]
+        },
+        "disp_rtm": {
+          "missing_pct": 0.0,
+          "unique_count": 359,
+          "sample_values": [
+            "01:12",
+            "00:25",
+            "02:23",
+            "01:50",
+            "01:56"
+          ]
+        },
+        "dsbtr_nm": {
+          "missing_pct": 100.0,
+          "unique_count": 0,
+          "sample_values": []
+        },
+        "epsd_id": {
+          "missing_pct": 0.02,
+          "unique_count": 305162,
+          "sample_values": [
+            "의림지뜰 사람들_3",
+            "의림지뜰 사람들_6",
+            "의림지뜰 사람들_9",
+            "경남김해_12",
+            "눈에 띄는 그녀들3_28"
+          ]
+        },
+        "epsd_nm": {
+          "missing_pct": 0.0,
+          "unique_count": 374302,
+          "sample_values": [
+            "소재 : [꽃길만 걸어요(채널A)/꽃길만 걸어요(채널A) 19회(23/03/11)]",
+            "소재 : [프리한 닥터(유료)/프리한 닥터 73회(22/10/03)]",
+            "소재 : [프리한 닥터/프리한 닥터 41회]",
+            "소재 : [고급창녀 2/고급창녀 2]",
+            "소재 : [무엇이든 물어보살/무엇이든 물어보살 242회]"
+          ]
+        },
+        "epsd_no": {
+          "missing_pct": 0.07,
+          "unique_count": 2546,
+          "sample_values": [
+            "15",
+            "24",
+            "26",
+            "29",
+            "38"
+          ]
+        },
+        "full_asset_id": {
+          "missing_pct": 0.0,
+          "unique_count": 470096,
+          "sample_values": [
+            "cjc|M5061768LSVK31782201",
+            "cjc|M5061826LFOJ75672701",
+            "cjc|M5061845LSGL40596801",
+            "cjc|M5061924LSVJ76295001",
+            "cjc|M5061928LSVJ76283301"
+          ]
+        },
+        "genre": {
+          "missing_pct": 0.0,
+          "unique_count": 80,
+          "sample_values": [
+            "대담토론",
+            "드라마",
+            "멜로",
+            "국내",
+            "교양다큐"
+          ]
+        },
+        "genre_of_ct_cl": {
+          "missing_pct": 0.0,
+          "unique_count": 59,
+          "sample_values": [
+            "스포츠",
+            "연예/정보 예능",
+            "교양",
+            "뉴스",
+            "외국어강좌"
+          ]
+        },
+        "genre_of_ct_cl_cd": {
+          "missing_pct": 0.0,
+          "unique_count": 18,
+          "sample_values": [
+            "18",
+            "05",
+            "10",
+            "16",
+            "17"
+          ]
+        },
+        "grade_score": {
+          "missing_pct": 100.0,
+          "unique_count": 0,
+          "sample_values": []
+        },
+        "hash_tag": {
+          "missing_pct": 100.0,
+          "unique_count": 0,
+          "sample_values": []
+        },
+        "img_base_dir": {
+          "missing_pct": 0.35,
+          "unique_count": 1,
+          "sample_values": [
+            "/mnt/thumb/"
+          ]
+        },
+        "is_hot_fl": {
+          "missing_pct": 0.58,
+          "unique_count": 1,
+          "sample_values": [
+            "0"
+          ]
+        },
+        "is_new_fl": {
+          "missing_pct": 0.58,
+          "unique_count": 1,
+          "sample_values": [
+            "0"
+          ]
+        },
+        "long_tail_fl": {
+          "missing_pct": 0.26,
+          "unique_count": 1,
+          "sample_values": [
+            "0"
+          ]
+        },
+        "lt_inclsn_fl": {
+          "missing_pct": 0.0,
+          "unique_count": 2,
+          "sample_values": [
+            "1",
+            "0"
+          ]
+        },
+        "mobile_watch_url": {
+          "missing_pct": 100.0,
+          "unique_count": 0,
+          "sample_values": []
+        },
+        "one_line_review": {
+          "missing_pct": 100.0,
+          "unique_count": 0,
+          "sample_values": []
+        },
+        "orgnl_air_dt": {
+          "missing_pct": 100.0,
+          "unique_count": 0,
+          "sample_values": []
+        },
+        "orgnl_cntry": {
+          "missing_pct": 0.01,
+          "unique_count": 96,
+          "sample_values": [
+            "우크라이나",
+            "칠레",
+            "루마니아",
+            "에스토니아",
+            "도미니카"
+          ]
+        },
+        "poster_del_fl": {
+          "missing_pct": 0.0,
+          "unique_count": 2,
+          "sample_values": [
+            "1",
+            "0"
+          ]
+        },
+        "poster_pt": {
+          "missing_pct": 0.21,
+          "unique_count": 374892,
+          "sample_values": [
+            "/mnt/thumb/CJHV/poster/23/01/29/M5148664LSGL357514",
+            "/mnt/thumb/CJHV/poster/23/06/28/M5148684LSVL268234",
+            "/mnt/thumb/CJHV/poster/23/02/06/M5148694LSGL407640",
+            "/mnt/thumb/CJHV/poster/23/05/01/M5148742LSGL996185",
+            "/mnt/thumb/CJHV/poster/23/01/17/M5148747LSVL269447"
+          ]
+        },
+        "prdcrs": {
+          "missing_pct": 100.0,
+          "unique_count": 1,
+          "sample_values": [
+            "CJ 헬로"
+          ]
+        },
+        "preview_file_nm": {
+          "missing_pct": 97.02,
+          "unique_count": 12819,
+          "sample_values": [
+            "M4645903.mpg",
+            "M4645907.mpg",
+            "M4693333.mpg",
+            "M4693347.mpg",
+            "M4693974.mpg"
+          ]
+        },
+        "preview_rate": {
+          "missing_pct": 97.02,
+          "unique_count": 5,
+          "sample_values": [
+            "00",
+            "19",
+            "15",
+            "12",
+            "07"
+          ]
+        },
+        "preview_rtm": {
+          "missing_pct": 97.02,
+          "unique_count": 5,
+          "sample_values": [
+            "00:01",
+            "00:00",
+            "00:03",
+            "00:02",
+            "00:04"
+          ]
+        },
+        "prevw_prd": {
+          "missing_pct": 0.0,
+          "unique_count": 2,
+          "sample_values": [
+            "180",
+            "0"
+          ]
+        },
+        "product_tp": {
+          "missing_pct": 0.0,
+          "unique_count": 8,
+          "sample_values": [
+            "050",
+            "021",
+            "031",
+            "010",
+            "030"
+          ]
+        },
+        "provider": {
+          "missing_pct": 0.0,
+          "unique_count": 329,
+          "sample_values": [
+            "(주)미디어로그",
+            "(주)뮤직엔닷컴",
+            "(주)아이에이치큐",
+            "TCF Hungary Ltd.",
+            "(주)두리컴미디어"
+          ]
+        },
+        "prpgt_pri": {
+          "missing_pct": 0.0,
+          "unique_count": 11,
+          "sample_values": [
+            "10",
+            "1",
+            "2",
+            "7",
+            "6"
+          ]
+        },
+        "prvd_id": {
+          "missing_pct": 0.0,
+          "unique_count": 4,
+          "sample_values": [
+            "JCN",
+            "GCS",
+            "CCS",
+            "cjc"
+          ]
+        },
+        "publctn_rt": {
+          "missing_pct": 0.33,
+          "unique_count": 8,
+          "sample_values": [
+            "TV,TV,모바일,모바일,인터넷,인터넷",
+            "모바일,인터넷",
+            "TV,인터넷",
+            "TV",
+            "TV,TV"
+          ]
+        },
+        "rate": {
+          "missing_pct": 0.0,
+          "unique_count": 5,
+          "sample_values": [
+            "00",
+            "19",
+            "12",
+            "07",
+            "15"
+          ]
+        },
+        "rlse_year": {
+          "missing_pct": 0.0,
+          "unique_count": 100,
+          "sample_values": [
+            "2021",
+            "2019",
+            "2000",
+            "1961",
+            "1939"
+          ]
+        },
+        "rvsn_id": {
+          "missing_pct": 0.0,
+          "unique_count": 1,
+          "sample_values": [
+            "1"
+          ]
+        },
+        "screen_tp": {
+          "missing_pct": 0.0,
+          "unique_count": 3,
+          "sample_values": [
+            "SD",
+            "HD",
+            "UHD"
+          ]
+        },
+        "seasn_fin_fl": {
+          "missing_pct": 99.23,
+          "unique_count": 1,
+          "sample_values": [
+            "0"
+          ]
+        },
+        "seasn_prem_fl": {
+          "missing_pct": 99.49,
+          "unique_count": 2,
+          "sample_values": [
+            "0",
+            "1"
+          ]
+        },
+        "series_sq": {
+          "missing_pct": 23.78,
+          "unique_count": 19739,
+          "sample_values": [
+            "1761486",
+            "1801242",
+            "1798984",
+            "1788621",
+            "1793382"
+          ]
+        },
+        "show_tp": {
+          "missing_pct": 100.0,
+          "unique_count": 0,
+          "sample_values": []
+        },
+        "smry": {
+          "missing_pct": 0.01,
+          "unique_count": 276240,
+          "sample_values": [
+            "온천에 와서 남편이 아닌 다른 남자들과 눈이 맞아 집에 아이와 남편은 잊은 체 본능에 몸을",
+            "이젠 부모보다 아이가 더 기다리는 유형발달 반반놀이, 그 세 번째. 우리 아이 할 말은 하",
+            "마을에 울려 퍼지는 웃음소리. 주변에 웃음 바이러스를 뿌리고 다니는 명선 씨. 하지만 하루",
+            "서비스 해지 시까지 시청 가능. 1. 대왕 고래 구조작전. 이른 아침, 대원들 몰래 탐험에",
+            "오한빈은 개그콤비인 공기계단이 데드맨즈로부터 습격 예고를 받았다는 말에 매니저의 의뢰를 받"
+          ]
+        },
+        "smry_lng": {
+          "missing_pct": 0.01,
+          "unique_count": 276230,
+          "sample_values": [
+            "천연기념물이자 의림지뜰의 또 다른 식구 수달. 그런 수달이 의림지뜰 친환경농업에 주는 피해",
+            "여성의 그곳에 넣을 때 꼭 알아야만 하는 주의 사항에 대해 자세하게 알아본다. 삽입 전 체",
+            "마사지사가 되어 합법적으로 여자 몸을 주무를 수 있다면?' 남자라면 누구나 해봤을 법한 생",
+            "제작 기간만 1년 실제 일반인 4명을 헌팅에 성공했습니다. 공들인 만큼 와꾸 1등 몸매 1",
+            "평소 평범한 친구로 지냈던 옆집 남자애가 우리집으로 찾아왔다. 남녀간에 흐르는 묘한 분위기"
+          ]
+        },
+        "smry_shrt": {
+          "missing_pct": 0.01,
+          "unique_count": 275449,
+          "sample_values": [
+            "의림지뜰에서 새해를 맞이하는 농부들의 이야기",
+            "일본에서 이슈중인 불량 기업들의 은밀한 신입사원 면접 실태를 고발한다.",
+            "이 정도 이쁜애들 5명을 2시간동안 볼 수 있다고? 가성비 쩌는 최고의 컨텐츠. 여대생들이",
+            "비버리 힐즈에서 디제이 겸 사운드 테크니션으로 잘나가는 한 남자. 그 남자를 꼬시기 위해 ",
+            "단단해진 물건을 자신의 구멍에 넣어달라는 여자들 스스로 흥분해 길바닥에 음란한 액과 오줌을"
+          ]
+        },
+        "sp_id": {
+          "missing_pct": 0.01,
+          "unique_count": 2,
+          "sample_values": [
+            "CJHV",
+            "JCN"
+          ]
+        },
+        "star_score": {
+          "missing_pct": 100.0,
+          "unique_count": 0,
+          "sample_values": []
+        },
+        "studio": {
+          "missing_pct": 0.21,
+          "unique_count": 11,
+          "sample_values": [
+            "CJC",
+            "CCS충북방송",
+            "엔케이미디어",
+            "MMC",
+            "푸른방송"
+          ]
+        },
+        "studio_cd": {
+          "missing_pct": 80.58,
+          "unique_count": 1,
+          "sample_values": [
+            "C"
+          ]
+        },
+        "studio_nm": {
+          "missing_pct": 0.23,
+          "unique_count": 5002,
+          "sample_values": [
+            "(주)싸이더스",
+            "(주)태원엔터테인먼트",
+            "(주)씨네월드",
+            "(주)주말의 명화",
+            "(유)이층의 악당 문화산업전문회사"
+          ]
+        },
+        "sub_title": {
+          "missing_pct": 100.0,
+          "unique_count": 0,
+          "sample_values": []
+        },
+        "super_asset_id": {
+          "missing_pct": 0.21,
+          "unique_count": 282863,
+          "sample_values": [
+            "T20220127081610-00002",
+            "1305270079-00026",
+            "1305270079-00018",
+            "1305270079-00038",
+            "T20220127081633-00027"
+          ]
+        },
+        "super_asset_nm": {
+          "missing_pct": 0.29,
+          "unique_count": 45850,
+          "sample_values": [
+            "가을의 추억",
+            "새로운 도전의 시작",
+            "의림지뜰의 겨울가뭄",
+            "혀돌리는 소리에 싸버린 옆집 아저씨",
+            "요가강사 여친에게 받는 무료 서비스"
+          ]
+        },
+        "super_asset_sq": {
+          "missing_pct": 0.49,
+          "unique_count": 283760,
+          "sample_values": [
+            "3734592",
+            "3748430",
+            "3757708",
+            "3751250",
+            "3751244"
+          ]
+        },
+        "svc_applied": {
+          "missing_pct": 96.35,
+          "unique_count": 3248,
+          "sample_values": [
+            "20190129233340",
+            "20240423172901",
+            "20240510143929",
+            "20230217232212",
+            "20240912104756"
+          ]
+        },
+        "svc_apy_fl": {
+          "missing_pct": 0.01,
+          "unique_count": 1,
+          "sample_values": [
+            "1"
+          ]
+        },
+        "thmbnl_del_fl": {
+          "missing_pct": 0.01,
+          "unique_count": 2,
+          "sample_values": [
+            "0",
+            "1"
+          ]
+        },
+        "thmbnl_fl": {
+          "missing_pct": 2.56,
+          "unique_count": 2,
+          "sample_values": [
+            "0",
+            "1"
+          ]
+        },
+        "thmbnl_pt": {
+          "missing_pct": 3.14,
+          "unique_count": 362270,
+          "sample_values": [
+            "/mnt/thumb/CJHV/thumbnail/22/01/27/M5023170LSGI885",
+            "/mnt/thumb/CJHV/thumbnail/22/02/11/M5023269LSGI931",
+            "/mnt/thumb/CJHV/thumbnail/22/02/06/M5023320LSGI886",
+            "/mnt/thumb/CJHV/thumbnail/22/02/28/M5023383LSGJ030",
+            "/mnt/thumb/CJHV/thumbnail/22/02/24/M5023438LSGI922"
+          ]
+        },
+        "thmbnl_rep_file_nm": {
+          "missing_pct": 3.14,
+          "unique_count": 2,
+          "sample_values": [
+            "05.jpg",
+            "02.jpg"
+          ]
+        },
+        "ttl": {
+          "missing_pct": 0.02,
+          "unique_count": 360103,
+          "sample_values": [
+            "프리한 닥터 95회(23/03/27)",
+            "프리한 닥터 33회",
+            "프리한 닥터 71회(22/09/19)",
+            "러브레터",
+            "무엇이든 물어보살 202회"
+          ]
+        },
+        "ttl_brief": {
+          "missing_pct": 0.01,
+          "unique_count": 468853,
+          "sample_values": [
+            "M5061776LSGJ898302",
+            "M5061787LSGK193092",
+            "M5061902LSGL406020",
+            "M4729996LSVJ734490",
+            "M4730156LSGE754351"
+          ]
+        },
+        "ttl_lng": {
+          "missing_pct": 99.5,
+          "unique_count": 2060,
+          "sample_values": [
+            "(HD)나는나비",
+            "(HD)마이라띠마",
+            "(평생소장)(HD)바다 탐험대 옥...",
+            "(평생소장)(HD)가시",
+            "(평생소장)(HD)캐롤"
+          ]
+        },
+        "ttl_mdm": {
+          "missing_pct": 99.49,
+          "unique_count": 2082,
+          "sample_values": [
+            "(SD)컨스피러시",
+            "(평생소장)(HD)리셀웨폰4",
+            "(평생소장)(HD)히트",
+            "(TV+모바일)님포매니악 볼륨1",
+            "(TV+모바일)마담뺑덕"
+          ]
+        },
+        "ttl_sort_nm": {
+          "missing_pct": 99.16,
+          "unique_count": 3588,
+          "sample_values": [
+            "21 점프 스트리트",
+            "(SD)콘스탄틴",
+            "언노운",
+            "아이덴티티",
+            "시티워-익스트림킬러"
+          ]
+        },
+        "updated": {
+          "missing_pct": 0.01,
+          "unique_count": 444535,
+          "sample_values": [
+            "20211119063744",
+            "20211121141814",
+            "20220627164607",
+            "20221227181528",
+            "20230729201055"
+          ]
+        },
+        "use_fl": {
+          "missing_pct": 0.01,
+          "unique_count": 1,
+          "sample_values": [
+            "1"
+          ]
+        },
+        "ver_major": {
+          "missing_pct": 0.01,
+          "unique_count": 1,
+          "sample_values": [
+            "1"
+          ]
+        },
+        "ver_minor": {
+          "missing_pct": 0.01,
+          "unique_count": 1,
+          "sample_values": [
+            "0"
+          ]
+        },
+        "vod_acq_tp_cd": {
+          "missing_pct": 0.01,
+          "unique_count": 3,
+          "sample_values": [
+            "LOCAL",
+            "1",
+            "CTVOD"
+          ]
+        },
+        "wrtr_disp": {
+          "missing_pct": 0.55,
+          "unique_count": 17764,
+          "sample_values": [
+            "윤성만,이광훈",
+            "이마이즈미 리키야",
+            "가스톤 두프라트,마리아노 콘",
+            "디샌토",
+            "이숭환"
+          ]
+        },
+        "asset_5": {
+          "missing_pct": 0.0,
+          "unique_count": 470096,
+          "sample_values": [
+            "CCS10000000000007901",
+            "CCS10000000000008401",
+            "CCS10000000000008601",
+            "CCS10000000000017601",
+            "CCS10000000000019701"
+          ]
+        }
+      }
+    },
+    "vod_log": {
+      "table": "vod_log",
+      "total_rows": 60708471,
+      "columns": {
+        "sha2_hash": {
+          "missing_pct": 0.0,
+          "unique_count": 862120,
+          "sample_values": [
+            "f4852f32950ac56214c0f9354721a3e4a58532b166ec986b61",
+            "cdf46e5696bf8af9b9093ed7fda7698a5d29d18c63b34c78be",
+            "6e9fab75aeec070b1405f3754e5168b8aa33e3d1baf9f6b1fa",
+            "f306f823abcae72b7e16c88c23b82ca0d408440e0ab5182387",
+            "481d3a7452a0756bee01bc9c0f3afc6bebe492c7497e4cb6b9"
+          ]
+        },
+        "asset": {
+          "missing_pct": 0.02,
+          "unique_count": 449485,
+          "sample_values": [
+            "cjc|M5069632LFOJ93930701",
+            "cjc|M5140910LSGL32572401",
+            "cjc|M0118747LSGK84112401",
+            "cjc|M4964052LSVH56379401",
+            "cjc|M4954652LFOI38742301"
+          ]
+        },
+        "asset_nm": {
+          "missing_pct": 1.91,
+          "unique_count": 347045,
+          "sample_values": [
+            "악의 마음을 읽는 자들 08회(22/02/26)",
+            "소방서 옆 경찰서 09회(22/12/10)",
+            "미씽나인 02회",
+            "익스트림 게임-서울어택",
+            "하자있는 인간들 03회"
+          ]
+        },
+        "CT_CL": {
+          "missing_pct": 1.91,
+          "unique_count": 15,
+          "sample_values": [
+            "영화",
+            "공연/음악",
+            "TV드라마",
+            "라이프",
+            "스포츠"
+          ]
+        },
+        "genre_of_ct_cl": {
+          "missing_pct": 1.91,
+          "unique_count": 59,
+          "sample_values": [
+            "스포츠",
+            "외국어강좌",
+            "뉴스/시사",
+            "교양",
+            "뉴스"
+          ]
+        },
+        "use_tms": {
+          "missing_pct": 0.0,
+          "unique_count": 20704,
+          "sample_values": [
+            "1114",
+            "6000",
+            "1702",
+            "1260",
+            "346"
+          ]
+        },
+        "disp_rtm": {
+          "missing_pct": 1.91,
+          "unique_count": 359,
+          "sample_values": [
+            "01:11",
+            "01:32",
+            "01:15",
+            "01:09",
+            "00:04"
+          ]
+        },
+        "strt_dt": {
+          "missing_pct": 0.0,
+          "unique_count": 20228294,
+          "sample_values": [
+            "20230102211437",
+            "20230102144508",
+            "20230129161448",
+            "20230129202001",
+            "20230129092842"
+          ]
+        },
+        "category": {
+          "missing_pct": 1.97,
+          "unique_count": 19658,
+          "sample_values": [
+            "애니메이션/액션모험/(더빙)백앤아 게임튜브",
+            "CJ ENM/tvN드라마/슈룹",
+            "애니메이션/투니버스월정액/(더빙)명탐정코난 20기",
+            "JTBC/JTBC드라마/모범형사2",
+            "애니메이션/애니초이스/기타/(자막)장난스런 키스"
+          ]
+        }
+      }
+    }
+  },
+  "issues": [
+    {
+      "table": "vod_content",
+      "type": "dropped_high_missing",
+      "columns": [
+        "aud",
+        "audience_cnt",
+        "disp_as_lst_chnc",
+        "disp_as_new",
+        "dsbtr_nm",
+        "grade_score",
+        "hash_tag",
+        "mobile_watch_url",
+        "one_line_review",
+        "orgnl_air_dt",
+        "prdcrs",
+        "preview_file_nm",
+        "preview_rate",
+        "preview_rtm",
+        "seasn_fin_fl",
+        "seasn_prem_fl",
+        "show_tp",
+        "star_score",
+        "studio_cd",
+        "sub_title",
+        "svc_applied",
+        "ttl_lng",
+        "ttl_mdm",
+        "ttl_sort_nm"
+      ],
+      "reason": "결측 70% 이상"
+    },
+    {
+      "table": "vod_content",
+      "type": "single_value",
+      "columns": [
+        "disp_as_lst_chnc",
+        "disp_as_new",
+        "img_base_dir",
+        "is_hot_fl",
+        "is_new_fl",
+        "long_tail_fl",
+        "prdcrs",
+        "rvsn_id",
+        "seasn_fin_fl",
+        "studio_cd",
+        "svc_apy_fl",
+        "use_fl",
+        "ver_major",
+        "ver_minor"
+      ],
+      "reason": "유니크 값 1개"
+    }
+  ],
+  "type_conversions": {
+    "user_profile": {
+      "BOOLEAN": [
+        "PROD_OLD_YN",
+        "PROD_ONE_PLUS_YN",
+        "STB_RES_1M_YN",
+        "BUNDLE_YN",
+        "DIGITAL_GIGA_YN",
+        "DIGITAL_ALOG_YN",
+        "VOC_TOTAL_MONTH1_YN",
+        "VOC_STOP_CANCEL_MONTH1_YN",
+        "NFX_USE_YN",
+        "YTB_USE_YN"
+      ],
+      "INTEGER": [
+        "AGMT_END_YMD",
+        "TOTAL_USED_DAYS",
+        "TV_SCRB",
+        "ANALOG_SCRB",
+        "DIGITAL_SCRB",
+        "TOTAL_INTERNET_SCRB",
+        "GIGA_INTERNET_SCRB",
+        "p_mt"
+      ],
+      "FLOAT": [
+        "INHOME_RATE",
+        "TV_I_CNT",
+        "CH_HH_AVG_MONTH1",
+        "CH_25_RATIO_MONTH1",
+        "CH_25_RATIO_MEAN_3MM",
+        "KIDS_USE_PV_MONTH1"
+      ],
+      "VARCHAR": []
+    },
+    "vod_content": {
+      "BOOLEAN": [
+        "is_hot_fl",
+        "is_new_fl",
+        "long_tail_fl",
+        "lt_inclsn_fl",
+        "poster_del_fl",
+        "rvsn_id",
+        "svc_apy_fl",
+        "thmbnl_del_fl",
+        "thmbnl_fl",
+        "use_fl",
+        "ver_major",
+        "ver_minor"
+      ],
+      "INTEGER": [
+        "broad_ymd",
+        "created",
+        "crt_ymd",
+        "epsd_no",
+        "genre_of_ct_cl_cd",
+        "prevw_prd",
+        "product_tp",
+        "prpgt_pri",
+        "rate",
+        "rlse_year",
+        "series_sq",
+        "super_asset_sq",
+        "updated"
+      ],
+      "FLOAT": [],
+      "VARCHAR": []
+    },
+    "vod_log": {
+      "BOOLEAN": [],
+      "INTEGER": [
+        "use_tms",
+        "strt_dt"
+      ],
+      "FLOAT": [],
+      "VARCHAR": []
+    }
+  }
+}
