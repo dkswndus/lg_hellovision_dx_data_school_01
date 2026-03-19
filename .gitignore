@@ -1,10 +1,17 @@
 # Reports (generated)
-결과보고서.md
+# 결과보고서.md - 추적함 (최종 데이터셋 문서 포함)
 
 # Data (large files)
 data/raw/*.csv
 data/*.duckdb
 data/interim/*.parquet
+# parquet 추적 (user_profile, vod_content, vod_log)
+!data/interim/user_profile.parquet
+!data/interim/user_profile_clean.parquet
+!data/interim/vod_content.parquet
+!data/interim/vod_content_clean.parquet
+!data/interim/vod_log.parquet
+!data/interim/vod_log_clean.parquet
 
 # Python
 __pycache__/
