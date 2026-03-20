@@ -290,6 +290,52 @@ def plot_hypothesis_results(results: list[dict], top5: list[str]):
     print(f"저장: {OUTPUT_DIR / 'hypothesis_effect_size.png'}")
 
 
+def plot_overfitting_check(results: list[dict]) -> None:
+    """Train vs Val PRC-AUC 비교로 과적합 검증 시각화"""
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    names = [r["모델"] for r in results]
+    train_prc = [r["Train PRC-AUC"] for r in results]
+    val_prc = [r["Val PRC-AUC"] for r in results]
+    gaps = [r["Gap (Train-Val)"] for r in results]
+
+    fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+
+    # 1) Train vs Val 막대 그래프
+    x = np.arange(len(names))
+    w = 0.35
+    ax1 = axes[0]
+    bars1 = ax1.bar(x - w / 2, train_prc, w, label="Train PRC-AUC", color="#3498db", alpha=0.8)
+    bars2 = ax1.bar(x + w / 2, val_prc, w, label="Val PRC-AUC", color="#e74c3c", alpha=0.8)
+    ax1.set_xticks(x)
+    ax1.set_xticklabels(names, rotation=30, ha="right")
+    ax1.set_ylabel("PRC-AUC")
+    ax1.set_title("과적합 검증: Train vs Validation PRC-AUC")
+    ax1.legend()
+    ax1.axhline(0.2, color="gray", linestyle=":", alpha=0.5, label="baseline(prior~0.2)")
+    ax1.grid(axis="y", alpha=0.3)
+
+    # 2) Gap (Train - Val): 클수록 과적합
+    ax2 = axes[1]
+    colors = ["#e74c3c" if g > 0.1 else "#2ecc71" for g in gaps]
+    ax2.barh(names, gaps, color=colors, alpha=0.8)
+    ax2.set_xlabel("Gap (Train PRC-AUC - Val PRC-AUC)")
+    ax2.set_title("과적합 지표: Gap > 0.1이면 과적합 의심")
+    ax2.axvline(0.1, color="red", linestyle="--", alpha=0.7)
+    ax2.invert_yaxis()
+    ax2.grid(axis="x", alpha=0.3)
+
+    plt.tight_layout()
+    plt.savefig(OUTPUT_DIR / "overfitting_check.png", dpi=120, bbox_inches="tight")
+    plt.close()
+
+    # 콘솔 출력
+    print("\n[과적합 검증] Train vs Val PRC-AUC:")
+    for r in results:
+        status = "[!] 과적합 의심" if r["Gap (Train-Val)"] > 0.1 else "[OK] 양호"
+        print(f"  {r['모델']}: Train={r['Train PRC-AUC']:.4f}, Val={r['Val PRC-AUC']:.4f}, Gap={r['Gap (Train-Val)']:.4f} {status}")
+    print(f"저장: {OUTPUT_DIR / 'overfitting_check.png'}")
+
+
 def compare_models_and_save(
     df: pd.DataFrame, top10: list[str], numeric: list, categorical: list
 ) -> None:
@@ -322,12 +368,20 @@ def compare_models_and_save(
         model.fit(X_train, y_train)
         y_pred = model.predict(X_val)
         y_proba = model.predict_proba(X_val)[:, 1]
+        y_proba_train = model.predict_proba(X_train)[:, 1]
+
+        train_prc = average_precision_score(y_train, y_proba_train)
+        val_prc = average_precision_score(y_val, y_proba)
+        gap = train_prc - val_prc
 
         cm = confusion_matrix(y_val, y_pred)
         cms[name] = cm
         results.append({
             "모델": name,
-            "PRC-AUC": average_precision_score(y_val, y_proba),
+            "Train PRC-AUC": train_prc,
+            "Val PRC-AUC": val_prc,
+            "Gap (Train-Val)": gap,
+            "PRC-AUC": val_prc,  # Val과 동일 (보고서 호환)
             "Accuracy": accuracy_score(y_val, y_pred),
             "Precision": precision_score(y_val, y_pred, zero_division=0),
             "Recall": recall_score(y_val, y_pred, zero_division=0),
@@ -378,6 +432,9 @@ def compare_models_and_save(
     plt.close()
     pd.DataFrame(results).to_csv(OUTPUT_DIR / "model_comparison.csv", index=False, encoding="utf-8-sig")
     print(f"저장: {OUTPUT_DIR / 'model_comparison.png'}")
+
+    # 과적합 검증: Train vs Val PRC-AUC
+    plot_overfitting_check(results)
 
 
 def plot_prc_auc_by_k(results_by_k: list[tuple[int, float]]):
