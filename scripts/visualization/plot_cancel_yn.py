@@ -7,7 +7,7 @@ import duckdb
 import matplotlib.pyplot as plt
 
 
-BASE = Path(__file__).parent
+BASE = Path(__file__).resolve().parent.parent.parent
 DB_PATH = BASE / "data" / "lghellovision.duckdb"
 OUTPUT = BASE / "output"
 

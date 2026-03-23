@@ -23,7 +23,7 @@ try:
 except ImportError:
     HAS_LGB = False
 
-BASE = Path(__file__).parent
+BASE = Path(__file__).resolve().parent.parent.parent
 DATA_PATH = BASE / "data" / "processed" / "channel_model_dataset.parquet"
 CHURN_PATH = BASE / "data" / "processed" / "churn_dataset.parquet"
 OUTPUT_DIR = BASE / "output" / "channel_model"

@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-BASE = Path(__file__).parent
+BASE = Path(__file__).resolve().parent.parent.parent
 CHURN_PATH = BASE / "data" / "processed" / "churn_dataset.parquet"
 MONTHLY_VOD_PATH = BASE / "data" / "processed" / "monthly_vod_by_user.parquet"
 OUTPUT_DIR = BASE / "output" / "tv_vod_shift"

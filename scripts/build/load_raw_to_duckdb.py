@@ -9,7 +9,7 @@ from pathlib import Path
 
 import duckdb
 
-BASE = Path(__file__).parent
+BASE = Path(__file__).resolve().parent.parent.parent
 RAW_DIR = BASE / "data" / "raw"
 DB_PATH = BASE / "data" / "lghellovision.duckdb"
 

@@ -14,7 +14,7 @@ from pathlib import Path
 
 import duckdb
 
-BASE = Path(__file__).parent
+BASE = Path(__file__).resolve().parent.parent.parent
 INTERIM_DIR = BASE / "data" / "interim"
 PROCESSED_DIR = BASE / "data" / "processed"
 CHURN_PATH = PROCESSED_DIR / "churn_dataset.parquet"

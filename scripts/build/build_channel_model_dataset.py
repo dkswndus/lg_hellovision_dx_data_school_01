@@ -10,7 +10,7 @@ import duckdb
 import numpy as np
 import pandas as pd
 
-BASE = Path(__file__).parent
+BASE = Path(__file__).resolve().parent.parent.parent
 PROCESSED = BASE / "data" / "processed"
 CHURN_PATH = PROCESSED / "churn_dataset.parquet"
 OUTPUT_PATH = PROCESSED / "channel_model_dataset.parquet"

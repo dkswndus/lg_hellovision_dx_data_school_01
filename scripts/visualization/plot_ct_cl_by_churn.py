@@ -11,7 +11,7 @@ import matplotlib.font_manager as fm
 import matplotlib.pyplot as plt
 import numpy as np
 
-BASE = Path(__file__).parent
+BASE = Path(__file__).resolve().parent.parent.parent
 CHURN_DATASET = BASE / "data" / "processed" / "churn_dataset.parquet"
 VOD_LOG = BASE / "data" / "interim" / "vod_log_clean.parquet"
 CATEGORIES_PATH = BASE / "data" / "interim" / "vod_log_categories.json"

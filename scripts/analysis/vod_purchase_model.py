@@ -35,7 +35,7 @@ if os.name == "nt":
         plt.rcParams["font.family"] = prop.get_name()
 plt.rcParams["axes.unicode_minus"] = False
 
-BASE = Path(__file__).parent
+BASE = Path(__file__).resolve().parent.parent.parent
 DATA_PATH = BASE / "data" / "processed" / "vod_purchase_dataset.parquet"
 OUTPUT_DIR = BASE / "output" / "vod_purchase_model"
 EXCLUDE = {"sha2_hash", "p_mt", "vod_purchase_cnt", "cancel_yn", "rvod_cnt"}

@@ -6,7 +6,7 @@ from pathlib import Path
 
 import duckdb
 
-BASE = Path(__file__).parent
+BASE = Path(__file__).resolve().parent.parent.parent
 DB_PATH = BASE / "data" / "lghellovision.duckdb"
 OUT_DIR = BASE / "data"
 TABLES = ["vod_log", "vod_content", "user_profile"]

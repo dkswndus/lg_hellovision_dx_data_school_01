@@ -46,7 +46,7 @@ if os.name == "nt":
         plt.rcParams["font.family"] = prop.get_name()
 plt.rcParams["axes.unicode_minus"] = False
 
-BASE = Path(__file__).parent
+BASE = Path(__file__).resolve().parent.parent.parent
 DATA_PATH = BASE / "data" / "processed" / "churn_dataset.parquet"
 OUTPUT_DIR = BASE / "output" / "churn_analysis"
 CATEGORIES_PATH = BASE / "data" / "interim" / "user_profile_categories.json"

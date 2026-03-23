@@ -9,7 +9,7 @@ import matplotlib.font_manager as fm
 import matplotlib.pyplot as plt
 import pandas as pd
 
-BASE = Path(__file__).parent
+BASE = Path(__file__).resolve().parent.parent.parent
 CHURN_PATH = BASE / "data" / "processed" / "churn_dataset.parquet"
 VOD_BY_TYPE_PATH = BASE / "data" / "processed" / "monthly_vod_by_type.parquet"
 OUTPUT_DIR = BASE / "output" / "tv_vod_shift"
