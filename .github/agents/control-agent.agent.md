@@ -21,6 +21,7 @@ description: 에이전트 간 흐름·라우팅·오케스트레이션
 | 데이터 분포 분석, 피처 엔지니어링 | data-scientist |
 | 모델 배포, 서빙 환경 최적화 | ml-ops |
 | 출력 품질 검증 | eval-agent |
+| 대시보드/시각화/사용자 인터페이스 | web-agent |
 | 지표 미달 또는 불확실 구간 | human-in-the-loop |
 
 ---
@@ -39,8 +40,10 @@ eval-agent  →  지표 검증
 예       아니오
 ↓          ↓
 ml-ops   Red 사이클 재진입
-          ↓ (임계값 미달)
-     human-in-the-loop
+↓          ↓ (임계값 미달)
+web-agent  human-in-the-loop
+↓
+사용자(마케팅팀) 대시보드 제공
 ```
 
 ---
