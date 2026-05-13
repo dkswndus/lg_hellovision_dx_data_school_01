@@ -28,23 +28,56 @@ description: 에이전트 간 흐름·라우팅·오케스트레이션
 
 ## 오케스트레이션 흐름
 
+```mermaid
+flowchart TD
+    Start([사용자 요청]) --> Control{{Control Agent<br/>흐름·라우팅·오케스트레이션}}
+
+    Control --> DS[Data Scientist Agent<br/>피처 엔지니어링 · 변수 선정]
+    DS --> Eval{Eval Agent<br/>지표 검증<br/>PRC-AUC ≥ 0.521<br/>R² ≥ 0.624 · MAE ≤ 0.60}
+
+    Eval -->|✅ 통과| MLOps[ML Ops Agent<br/>Parquet · DuckDB · 서빙]
+    Eval -->|❌ 미통과| Red[🔴 Red 사이클 재진입]
+
+    MLOps --> Web[Web Agent<br/>Streamlit 대시보드]
+    Web --> User([👤 사용자<br/>마케팅팀])
+
+    Red --> Check{임계값 미달<br/>또는 누수 의심?}
+    Check -->|예| HITL[Human-in-the-Loop<br/>사람 개입·검토]
+    Check -->|아니오| DS
+
+    HITL -.재진입.-> DS
+
+    classDef control fill:#003876,stroke:#001f4d,color:#fff,stroke-width:2px
+    classDef agent fill:#0066CC,stroke:#003876,color:#fff,stroke-width:2px
+    classDef eval fill:#FFA500,stroke:#cc8400,color:#fff,stroke-width:2px
+    classDef ops fill:#28A745,stroke:#1e7e34,color:#fff,stroke-width:2px
+    classDef web fill:#6F42C1,stroke:#553098,color:#fff,stroke-width:2px
+    classDef hitl fill:#DC3545,stroke:#a71d2a,color:#fff,stroke-width:2px
+    classDef red fill:#FFE5E5,stroke:#CC0000,color:#CC0000,stroke-width:2px
+    classDef terminal fill:#F8F9FA,stroke:#666,color:#333,stroke-width:1px
+
+    class Control control
+    class DS agent
+    class Eval eval
+    class MLOps ops
+    class Web web
+    class HITL hitl
+    class Red red
+    class Check red
+    class Start,User terminal
 ```
-컨텍스트 주입
-     ↓
-data-scientist  →  피처/모델 실험
-     ↓
-eval-agent  →  지표 검증
-     ↓
-   통과?
-  /     \
-예       아니오
-↓          ↓
-ml-ops   Red 사이클 재진입
-↓          ↓ (임계값 미달)
-web-agent  human-in-the-loop
-↓
-사용자(마케팅팀) 대시보드 제공
-```
+
+### 흐름 설명
+
+| 단계 | 에이전트 | 역할 |
+|------|---------|------|
+| 1️⃣ | **Control Agent** | 작업을 받아 적절한 에이전트로 라우팅 |
+| 2️⃣ | **Data Scientist** | 피처 엔지니어링·모델 실험 |
+| 3️⃣ | **Eval Agent** | 지표 임계값 검증 |
+| 4-A | **ML Ops** (통과) | 서빙 환경 구성 |
+| 4-B | **Red 사이클** (미통과) | 재학습 또는 HITL |
+| 5️⃣ | **Web Agent** | 결과를 대시보드로 제공 |
+| ⚠️ | **Human-in-the-Loop** | 임계값 미달 시 사람 개입 |
 
 ---
 
