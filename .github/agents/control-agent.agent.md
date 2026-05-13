@@ -30,16 +30,13 @@ description: 에이전트 간 흐름·라우팅·오케스트레이션
 
 ```mermaid
 flowchart TD
-    Start([사용자 요청]) --> Control{{Control Agent<br/>흐름·라우팅·오케스트레이션}}
-
-    Control --> DS[Data Scientist Agent<br/>피처 엔지니어링 · 변수 선정]
+    Control{{Control Agent<br/>흐름·라우팅·오케스트레이션}} --> DS[Data Scientist Agent<br/>피처 엔지니어링 · 변수 선정]
     DS --> Eval{Eval Agent<br/>지표 검증<br/>PRC-AUC ≥ 0.5<br/>R² ≥ 0.6 · MAE ≤ 0.6}
 
     Eval -->|✅ 통과| MLOps[ML Ops Agent<br/>Parquet · DuckDB · 서빙]
     Eval -->|❌ 미통과| Red[🔴 Red 사이클 재진입]
 
     MLOps --> Web[Web Agent<br/>Streamlit 대시보드]
-    Web --> User([👤 사용자<br/>마케팅팀])
 
     Red --> Check{임계값 미달<br/>또는 누수 의심?}
     Check -->|예| HITL[Human-in-the-Loop<br/>사람 개입·검토]
@@ -54,7 +51,6 @@ flowchart TD
     classDef web fill:#6F42C1,stroke:#553098,color:#fff,stroke-width:2px
     classDef hitl fill:#DC3545,stroke:#a71d2a,color:#fff,stroke-width:2px
     classDef red fill:#FFE5E5,stroke:#CC0000,color:#CC0000,stroke-width:2px
-    classDef terminal fill:#F8F9FA,stroke:#666,color:#333,stroke-width:1px
 
     class Control control
     class DS agent
@@ -62,9 +58,7 @@ flowchart TD
     class MLOps ops
     class Web web
     class HITL hitl
-    class Red red
-    class Check red
-    class Start,User terminal
+    class Red,Check red
 ```
 
 ### 흐름 설명
