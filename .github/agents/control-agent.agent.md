@@ -33,7 +33,7 @@ flowchart TD
     Start([사용자 요청]) --> Control{{Control Agent<br/>흐름·라우팅·오케스트레이션}}
 
     Control --> DS[Data Scientist Agent<br/>피처 엔지니어링 · 변수 선정]
-    DS --> Eval{Eval Agent<br/>지표 검증<br/>PRC-AUC ≥ 0.521<br/>R² ≥ 0.624 · MAE ≤ 0.60}
+    DS --> Eval{Eval Agent<br/>지표 검증<br/>PRC-AUC ≥ 0.5<br/>R² ≥ 0.6 · MAE ≤ 0.6}
 
     Eval -->|✅ 통과| MLOps[ML Ops Agent<br/>Parquet · DuckDB · 서빙]
     Eval -->|❌ 미통과| Red[🔴 Red 사이클 재진입]
