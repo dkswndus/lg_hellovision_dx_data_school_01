@@ -7,10 +7,10 @@ matplotlib
 numpy
 scipy
 
-# 모델 비교 (선택)
+# 모델 비교
 lightgbm
 xgboost
 
-# 대시보드 (Streamlit)
-streamlit
-plotly
+# 대시보드
+streamlit>=1.28.0
+plotly>=5.0.0
