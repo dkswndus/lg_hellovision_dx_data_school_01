@@ -26,39 +26,93 @@ st.markdown("""
 <style>
     html, body, [class*="css"] {
         font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR", sans-serif;
+        font-size: 17px;
+        color: #1A1A1A;
+    }
+    /* 본문 텍스트 전반 진하게 */
+    .stMarkdown, .stMarkdown p, .stMarkdown li, .stText, label, .stSelectbox label, .stTextInput label {
+        color: #1A1A1A !important;
+        font-size: 1rem !important;
+    }
+    /* st.metric (KPI 4종) — 라벨/값 크게 */
+    [data-testid="stMetricLabel"] {
+        font-size: 1rem !important;
+        font-weight: 600 !important;
+        color: #333 !important;
+    }
+    [data-testid="stMetricValue"] {
+        font-size: 2rem !important;
+        font-weight: 700 !important;
+        color: #1A1A1A !important;
+    }
+    /* st.caption 가독성 */
+    .stCaption, [data-testid="stCaptionContainer"] {
+        color: #444 !important;
+        font-size: 0.95rem !important;
+    }
+    /* info / success 박스 */
+    [data-testid="stAlert"] p, [data-testid="stNotification"] p {
+        font-size: 1rem !important;
+        color: #1A1A1A !important;
     }
     .main-header {
         background: linear-gradient(90deg, #003876 0%, #0066CC 100%);
         padding: 1.5rem 2rem; border-radius: 10px;
         color: white; margin-bottom: 2rem;
     }
-    .main-header h1 { margin: 0; font-size: 1.8rem; font-weight: 700; }
-    .main-header p  { margin: 0.3rem 0 0 0; opacity: 0.9; font-size: 0.95rem; }
+    .main-header h1 { margin: 0; font-size: 2.1rem; font-weight: 800; color: #FFFFFF; }
+    .main-header p  { margin: 0.3rem 0 0 0; opacity: 1; font-size: 1.1rem; color: #FFFFFF; font-weight: 500; }
+    /* 3개 KPI 카드 같은 줄에서 높이 균등 */
+    [data-testid="stHorizontalBlock"] {
+        align-items: stretch !important;
+    }
+    [data-testid="stHorizontalBlock"] > [data-testid="column"] {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    [data-testid="stHorizontalBlock"] > [data-testid="column"] > div,
+    [data-testid="stHorizontalBlock"] > [data-testid="column"] [data-testid="stMarkdown"],
+    [data-testid="stHorizontalBlock"] > [data-testid="column"] [data-testid="stMarkdownContainer"] {
+        height: 100%;
+    }
     .metric-card {
         background: white; padding: 1.5rem; border-radius: 10px;
         border-left: 4px solid #0066CC;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 1rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 1rem;
+        height: 220px !important;
+        min-height: 220px !important;
+        max-height: 220px !important;
+        display: flex !important; flex-direction: column !important;
+        justify-content: space-between !important;
+        box-sizing: border-box !important;
+        overflow: hidden;
     }
-    .metric-label { color: #666; font-size: 0.9rem; margin-bottom: 0.5rem; }
-    .metric-value { font-size: 2rem; font-weight: 700; color: #003876; }
-    .metric-unit  { font-size: 1rem; color: #888; margin-left: 0.3rem; }
-    .risk-high   { background:#FFE5E5; color:#CC0000; padding:.3rem .8rem; border-radius:20px; font-weight:600; display:inline-block; }
-    .risk-medium { background:#FFF3CD; color:#856404; padding:.3rem .8rem; border-radius:20px; font-weight:600; display:inline-block; }
-    .risk-low    { background:#D4EDDA; color:#155724; padding:.3rem .8rem; border-radius:20px; font-weight:600; display:inline-block; }
+    .metric-card .metric-label { flex: 0 0 auto; }
+    .metric-card .metric-value { flex: 1 1 auto; display: flex; align-items: center; }
+    .metric-card > div:last-child { flex: 0 0 auto; }
+    .metric-label { color: #333; font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .metric-value { font-size: 2.4rem; font-weight: 800; color: #003876; }
+    .metric-unit  { font-size: 1.15rem; color: #444; margin-left: 0.3rem; font-weight: 600; }
+    .risk-high   { background:#FFE5E5; color:#A30000; padding:.3rem .8rem; border-radius:20px; font-weight:700; font-size:0.95rem; display:inline-block; }
+    .risk-medium { background:#FFF3CD; color:#6B4F00; padding:.3rem .8rem; border-radius:20px; font-weight:700; font-size:0.95rem; display:inline-block; }
+    .risk-low    { background:#D4EDDA; color:#0F4419; padding:.3rem .8rem; border-radius:20px; font-weight:700; font-size:0.95rem; display:inline-block; }
     .section-header {
-        font-size: 1.3rem; font-weight: 700; color: #003876;
-        margin: 2rem 0 1rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid #E0E0E0;
+        font-size: 1.55rem; font-weight: 800; color: #002A5C;
+        margin: 2rem 0 1rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid #B0CCE6;
     }
     .strategy-card {
         background: #F8F9FA; padding: 1.2rem; border-radius: 8px;
         border-left: 4px solid #28A745; margin-bottom: 1rem;
+        color: #1A1A1A; font-size: 1rem;
     }
     .data-badge {
-        background:#E8F4FD; color:#0066CC; padding:.2rem .6rem;
-        border-radius:12px; font-size:.8rem; font-weight:600;
+        background:#D6EAFB; color:#003876; padding:.25rem .7rem;
+        border-radius:12px; font-size:.9rem; font-weight:700;
         display:inline-block; margin-left:.5rem;
     }
     [data-testid="stSidebar"] { background: #F8F9FA; }
+    [data-testid="stSidebar"] * { color: #1A1A1A !important; }
+    [data-testid="stSidebar"] h3 { font-size: 1.15rem !important; font-weight: 700 !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -193,18 +247,19 @@ fig_trend.add_trace(go.Scatter(
 ))
 fig_trend.update_layout(
     xaxis_title="월",
+    font=dict(size=14, color="#1A1A1A"),
     yaxis=dict(
-        title=dict(text="TV 채널 시청 (시간/일)", font=dict(color="#0066CC")),
-        tickfont=dict(color="#0066CC"), gridcolor="#F0F0F0",
+        title=dict(text="TV 채널 시청 (시간/일)", font=dict(color="#0066CC", size=14)),
+        tickfont=dict(color="#0066CC", size=13), gridcolor="#F0F0F0",
     ),
     yaxis2=dict(
-        title=dict(text="VOD 시청 (시간/월)", font=dict(color="#E74C3C")),
-        tickfont=dict(color="#E74C3C"), overlaying="y", side="right",
+        title=dict(text="VOD 시청 (시간/월)", font=dict(color="#E74C3C", size=14)),
+        tickfont=dict(color="#E74C3C", size=13), overlaying="y", side="right",
     ),
-    hovermode="x unified", height=350,
-    margin=dict(l=10, r=80, t=20, b=10),
-    legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
-    plot_bgcolor="white", xaxis=dict(gridcolor="#F0F0F0"),
+    hovermode="x unified", height=380,
+    margin=dict(l=10, r=80, t=30, b=10),
+    legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(size=13)),
+    plot_bgcolor="white", xaxis=dict(gridcolor="#F0F0F0", tickfont=dict(size=13)),
 )
 st.plotly_chart(fig_trend, use_container_width=True)
 
@@ -283,15 +338,15 @@ with col1:
     <div class="metric-card">
         <div class="metric-label">📊 이탈 위험도 <span class="data-badge">실측 피처 기반</span></div>
         <div class="metric-value">{churn_risk:.1f}<span class="metric-unit">%</span></div>
-        <div style="margin-top:.5rem"><span class="{rc}">{rl}</span>{churn_badge}</div>
+        <div><span class="{rc}">{rl}</span>{churn_badge}</div>
     </div>""", unsafe_allow_html=True)
 
 with col2:
     st.markdown(f"""
     <div class="metric-card" style="border-left-color:#28A745;">
-        <div class="metric-label">💰 다음 달 VOD 구매 예측 <span class="data-badge">실측 피처 기반</span></div>
+        <div class="metric-label">💰 VOD 구매 예측 <span class="data-badge">실측 피처 기반</span></div>
         <div class="metric-value">{vod_purchase:.2f}<span class="metric-unit">건</span></div>
-        <div style="margin-top:.5rem;color:#666;font-size:.85rem;">MAE 0.596 기준 ± 0.6건</div>
+        <div><span class="risk-low">MAE ±0.6건</span></div>
     </div>""", unsafe_allow_html=True)
 
 with col3:
@@ -299,9 +354,9 @@ with col3:
     seg_churn_rate = 15.93 if segment == "저TV·고VOD" else 8.79
     st.markdown(f"""
     <div class="metric-card" style="border-left-color:#FFC107;">
-        <div class="metric-label">📺 TV/VOD 세그먼트</div>
-        <div class="metric-value" style="font-size:1.4rem;">{segment}</div>
-        <div style="margin-top:.5rem"><span class="{sb}">그룹 해지율 {seg_churn_rate}%</span></div>
+        <div class="metric-label">📺 TV/VOD 세그먼트 <span class="data-badge">실측 피처 기반</span></div>
+        <div class="metric-value" style="font-size:1.8rem;">{segment}</div>
+        <div><span class="{sb}">그룹 해지율 {seg_churn_rate}%</span></div>
     </div>""", unsafe_allow_html=True)
 
 with st.expander("📋 고객 실측 피처 상세 보기"):
@@ -339,9 +394,12 @@ with fi_tab1:
     df_fi = pd.DataFrame({"변수": list(CHURN_FEATURES.keys()), "중요도 (%)": list(CHURN_FEATURES.values())}).sort_values("중요도 (%)", ascending=True)
     fig_fi = px.bar(df_fi, x="중요도 (%)", y="변수", orientation="h",
                     color="중요도 (%)", color_continuous_scale=["#B0CCE6","#003876"])
-    fig_fi.update_layout(height=280, margin=dict(l=10,r=10,t=10,b=10),
+    fig_fi.update_layout(height=320, margin=dict(l=10,r=10,t=10,b=10),
                          plot_bgcolor="white", showlegend=False,
-                         coloraxis_showscale=False, xaxis=dict(gridcolor="#F0F0F0"))
+                         font=dict(size=14, color="#1A1A1A"),
+                         coloraxis_showscale=False,
+                         xaxis=dict(gridcolor="#F0F0F0", tickfont=dict(size=13)),
+                         yaxis=dict(tickfont=dict(size=13)))
     st.plotly_chart(fig_fi, use_container_width=True)
     st.caption("CH_LAST_DAYS_BF_GRP(미시청 기간)이 21.1%로 1위 — TV 이탈의 핵심 선행 지표")
 
@@ -349,20 +407,23 @@ with fi_tab2:
     df_fi2 = pd.DataFrame({"변수": list(VOD_FEATURES.keys()), "중요도 (%)": list(VOD_FEATURES.values())}).sort_values("중요도 (%)", ascending=True)
     fig_fi2 = px.bar(df_fi2, x="중요도 (%)", y="변수", orientation="h",
                      color="중요도 (%)", color_continuous_scale=["#B8DDB0","#1A6B2A"])
-    fig_fi2.update_layout(height=280, margin=dict(l=10,r=10,t=10,b=10),
+    fig_fi2.update_layout(height=320, margin=dict(l=10,r=10,t=10,b=10),
                           plot_bgcolor="white", showlegend=False,
-                          coloraxis_showscale=False, xaxis=dict(gridcolor="#F0F0F0"))
+                          font=dict(size=14, color="#1A1A1A"),
+                          coloraxis_showscale=False,
+                          xaxis=dict(gridcolor="#F0F0F0", tickfont=dict(size=13)),
+                          yaxis=dict(tickfont=dict(size=13)))
     st.plotly_chart(fig_fi2, use_container_width=True)
     st.caption("lagged_rvod_cnt(전월 구매 건수)가 45.7%로 1위 — '한 번 산 사람이 또 산다'")
 
 st.markdown('<div class="section-header">🎯 추천 마케팅 전략</div>', unsafe_allow_html=True)
 st.markdown(f"""
 <div class="strategy-card">
-    <div style="font-size:1.2rem;font-weight:700;color:#003876;margin-bottom:.5rem;">{strategy['title']}</div>
-    <div style="color:#666;margin-bottom:1rem;">우선순위: <strong>{strategy['priority']}</strong></div>
-    <div style="font-weight:600;margin-bottom:.5rem;">실행 액션:</div>
-    <ul style="margin:0;padding-left:1.5rem;">
-        {''.join(f'<li style="margin-bottom:.3rem;">{a}</li>' for a in strategy['actions'])}
+    <div style="font-size:1.35rem;font-weight:800;color:#002A5C;margin-bottom:.5rem;">{strategy['title']}</div>
+    <div style="color:#333;margin-bottom:1rem;font-size:1.05rem;">우선순위: <strong style="color:#1A1A1A;">{strategy['priority']}</strong></div>
+    <div style="font-weight:700;margin-bottom:.5rem;color:#1A1A1A;font-size:1.05rem;">실행 액션:</div>
+    <ul style="margin:0;padding-left:1.5rem;color:#1A1A1A;font-size:1.02rem;line-height:1.6;">
+        {''.join(f'<li style="margin-bottom:.4rem;">{a}</li>' for a in strategy['actions'])}
     </ul>
 </div>""", unsafe_allow_html=True)
 
@@ -378,11 +439,13 @@ fig_seg = go.Figure(go.Bar(
     text=[f"{v:.2f}%" for v in seg_df["해지율 (%)"]],
     textposition="outside", width=0.4,
 ))
-fig_seg.update_layout(yaxis_title="해지율 (%)", height=300,
+fig_seg.update_layout(yaxis_title="해지율 (%)", height=340,
                       margin=dict(l=10,r=10,t=20,b=10),
                       plot_bgcolor="white",
-                      xaxis=dict(gridcolor="#F0F0F0"),
-                      yaxis=dict(gridcolor="#F0F0F0", range=[0,20]))
+                      font=dict(size=14, color="#1A1A1A"),
+                      xaxis=dict(gridcolor="#F0F0F0", tickfont=dict(size=13)),
+                      yaxis=dict(gridcolor="#F0F0F0", range=[0,20], tickfont=dict(size=13)))
+fig_seg.update_traces(textfont=dict(size=15, color="#1A1A1A"))
 st.plotly_chart(fig_seg, use_container_width=True)
 
 st.markdown('<div class="section-header">💡 비즈니스 인사이트</div>', unsafe_allow_html=True)
@@ -425,7 +488,7 @@ with st.expander("📈 모델 성능 비교 (전체 실험 결과)"):
 
 st.markdown("---")
 st.markdown("""
-<div style="text-align:center;color:#888;font-size:.85rem;padding:1rem;">
+<div style="text-align:center;color:#555;font-size:.95rem;padding:1rem;font-weight:500;">
     LG HelloVision DX Data School · ML 기반 고객 분석 시스템<br>
     학습 데이터: 226만 행 · XGBoost (Churn) · Random Forest (VOD) · Streamlit
 </div>""", unsafe_allow_html=True)
