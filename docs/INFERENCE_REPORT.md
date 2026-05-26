@@ -46,4 +46,5 @@
 
 ## 관련 산출물
 
-- `src/models/train.py` — 학습·추론 파이프라인 (구성 시)
+- `scripts/serving/train_and_save.py` — 모델 학습 및 joblib 저장
+- `scripts/serving/predict.py` — 단건 추론 모듈 (대시보드·API 공용)

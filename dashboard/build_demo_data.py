@@ -87,6 +87,50 @@ trend = trend[trend["VOD_avg"] > 0].reset_index(drop=True)
 trend.to_csv(OUT / "monthly_trend.csv", index=False, encoding="utf-8-sig")
 print(f"   저장: {OUT / 'monthly_trend.csv'}  ({len(trend)}개월)")
 
+# ── 4분면 고객 데이터 (300명) ──────────────────
+print("5. 4분면 고객 데이터 생성...")
+quad_raw = df202312.sample(n=min(300, len(df202312)), random_state=99).copy()
+quad_raw = quad_raw.merge(
+    vod202312[["sha2_hash", "lagged_rvod_cnt"]],
+    on="sha2_hash", how="left"
+)
+quad_raw["lagged_rvod_cnt"] = quad_raw["lagged_rvod_cnt"].fillna(0)
+for col in quad_raw.select_dtypes(include="bool").columns:
+    quad_raw[col] = quad_raw[col].astype(int)
+
+# 해지 위험도 산출 (피처 기반 공식)
+score = (quad_raw["CH_LAST_DAYS_BF_GRP"].fillna(0).clip(0, 5) / 5) * 40
+score += quad_raw["VOC_STOP_CANCEL_MONTH1_YN"].fillna(0).astype(int) * 25
+voc_total = quad_raw["VOC_TOTAL_MONTH1_YN"].fillna(0).astype(int)
+voc_cancel = quad_raw["VOC_STOP_CANCEL_MONTH1_YN"].fillna(0).astype(int)
+score += voc_total.where(voc_cancel == 0, 0) * 12
+score += ((7 - quad_raw["AGMT_END_SEG"].fillna(7)).clip(0) / 6) * 15
+score += quad_raw["Is_Netflix"].fillna(0).astype(int) * 8
+recency = quad_raw["Recency"].fillna(0)
+score += np.where(recency >= 999, 5, np.where(recency > 180, 12, np.where(recency > 90, 6, 0)))
+quad_raw["churn_risk"] = score.clip(5, 95).round(1)
+
+# VOD 구매 예측 산출
+lagged = quad_raw["lagged_rvod_cnt"].fillna(0)
+vod_view = quad_raw["vod_view_cnt"].fillna(0)
+vod_asset = quad_raw["vod_asset_cnt"].fillna(0)
+quad_raw["vod_purchase"] = (lagged * 0.75 + (vod_view / 500) * 0.15 + (vod_asset / 50) * 0.10).clip(0, 30).round(2)
+
+# 4분면 레이블
+def _quadrant(r):
+    hi = r["churn_risk"] >= 50
+    buy = r["vod_purchase"] >= 1.0
+    if hi and not buy:  return "Q1_고위험_저구매"
+    if hi and buy:      return "Q2_고위험_고구매"
+    if not hi and not buy: return "Q3_저위험_저구매"
+    return "Q4_저위험_고구매"
+
+quad_raw["quadrant"] = quad_raw.apply(_quadrant, axis=1)
+quad_out = quad_raw[["sha2_hash", "churn_risk", "vod_purchase", "quadrant", "cancel_yn"]]
+quad_out.to_csv(OUT / "quadrant_customers.csv", index=False, encoding="utf-8-sig")
+print(f"   저장: {OUT / 'quadrant_customers.csv'}  ({len(quad_out)}명)")
+print("   4분면 분포:", quad_raw["quadrant"].value_counts().to_dict())
+
 # ── 결과 확인 ──────────────────────────────────
 print("\n=== 생성 완료 ===")
 for f in sorted(OUT.iterdir()):

@@ -11,6 +11,9 @@ scipy
 lightgbm
 xgboost
 
+# 서빙 파이프라인
+joblib
+
 # 대시보드
 streamlit>=1.28.0
 plotly>=5.0.0

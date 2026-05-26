@@ -5,6 +5,7 @@ LG HelloVision 고객 분석 대시보드
 - TV→VOD 세그먼트 분석 (실제 데이터 기반)
 """
 
+import sys
 from pathlib import Path
 import json
 import streamlit as st
@@ -15,6 +16,20 @@ import plotly.express as px
 
 # 배포 환경: demo_data/ 사용 / 로컬: 동일 경로
 DEMO = Path(__file__).resolve().parent / "demo_data"
+
+# 서빙 모듈 — models/ 디렉토리에 joblib 있으면 실제 모델 추론 사용
+_BASE = Path(__file__).resolve().parent.parent
+if str(_BASE) not in sys.path:
+    sys.path.insert(0, str(_BASE))
+
+_USE_MODEL = False
+try:
+    from scripts.serving.predict import models_available as _models_available
+    from scripts.serving.predict import predict_churn as _model_churn
+    from scripts.serving.predict import predict_vod as _model_vod
+    _USE_MODEL = _models_available()
+except Exception:
+    pass
 
 # ============================
 # 페이지 설정
@@ -156,9 +171,17 @@ def load_sample_customers() -> pd.DataFrame:
 def load_monthly_trend() -> pd.DataFrame:
     return pd.read_csv(DEMO / "monthly_trend.csv", encoding="utf-8-sig")
 
+@st.cache_data
+def load_quadrant_customers() -> pd.DataFrame:
+    p = DEMO / "quadrant_customers.csv"
+    if not p.exists():
+        return pd.DataFrame(columns=["sha2_hash", "churn_risk", "vod_purchase", "quadrant", "cancel_yn"])
+    return pd.read_csv(p, encoding="utf-8-sig")
+
 kpi            = load_kpi()
 sample_df      = load_sample_customers()
 trend_df       = load_monthly_trend()
+quad_df        = load_quadrant_customers()
 
 # 샘플 고객 목록 구성
 def _label(row) -> str:
@@ -176,9 +199,8 @@ sample_customers   = sample_df.to_dict("records")
 # ============================
 # 예측 함수 (실제 피처 기반)
 # ============================
-def compute_churn_risk(row) -> float:
-    score = 0.0
-    score += (int(row["CH_LAST_DAYS_BF_GRP"]) / 5) * 40
+def _churn_formula(row) -> float:
+    score = (int(row["CH_LAST_DAYS_BF_GRP"]) / 5) * 40
     if int(row.get("VOC_STOP_CANCEL_MONTH1_YN", 0)):
         score += 25
     elif int(row.get("VOC_TOTAL_MONTH1_YN", 0)):
@@ -196,12 +218,28 @@ def compute_churn_risk(row) -> float:
         score += 6
     return float(min(max(score, 5), 95))
 
-def compute_vod_prediction(row) -> float:
+def _vod_formula(row) -> float:
     lagged    = float(row.get("lagged_rvod_cnt", 0))
     vod_view  = float(row.get("vod_view_cnt", 0))
     vod_asset = float(row.get("vod_asset_cnt", 0))
     pred = lagged * 0.75 + (vod_view / 500) * 0.15 + (vod_asset / 50) * 0.10
     return float(min(max(pred, 0), 30))
+
+def compute_churn_risk(row) -> float:
+    if _USE_MODEL:
+        try:
+            return _model_churn(dict(row))
+        except Exception:
+            pass
+    return _churn_formula(row)
+
+def compute_vod_prediction(row) -> float:
+    if _USE_MODEL:
+        try:
+            return _model_vod(dict(row))
+        except Exception:
+            pass
+    return _vod_formula(row)
 
 def classify_segment(row) -> tuple:
     tv_watch  = float(row.get("CH_HH_AVG_MONTH1", 4))
@@ -462,6 +500,107 @@ st.markdown(f"""
         {''.join(f'<li style="margin-bottom:.4rem;">{a}</li>' for a in strategy['actions'])}
     </ul>
 </div>""", unsafe_allow_html=True)
+
+# ── 마케팅 4분면 산점도 ───────────────────────
+st.markdown('<div class="section-header">🎯 마케팅 4분면 분석 (위험도 × VOD 구매)</div>', unsafe_allow_html=True)
+
+_Q_COLOR = {
+    "Q1_고위험_저구매": "#CC0000",
+    "Q2_고위험_고구매": "#FF8C00",
+    "Q3_저위험_저구매": "#DAA520",
+    "Q4_저위험_고구매": "#28A745",
+}
+_Q_LABEL = {
+    "Q1_고위험_저구매": "🔴 Q1 고위험·저구매 — 긴급 유지",
+    "Q2_고위험_고구매": "🟠 Q2 고위험·고구매 — 유지+재구매",
+    "Q3_저위험_저구매": "🟡 Q3 저위험·저구매 — 첫구매 유도",
+    "Q4_저위험_고구매": "🟢 Q4 저위험·고구매 — 업셀링",
+}
+
+fig_quad = go.Figure()
+
+if not quad_df.empty:
+    for q, color in _Q_COLOR.items():
+        sub = quad_df[quad_df["quadrant"] == q]
+        if sub.empty:
+            continue
+        fig_quad.add_trace(go.Scatter(
+            x=sub["vod_purchase"], y=sub["churn_risk"],
+            mode="markers",
+            name=_Q_LABEL[q],
+            marker=dict(color=color, size=9, opacity=0.65,
+                        line=dict(color="white", width=0.5)),
+            customdata=sub[["cancel_yn"]].values,
+            hovertemplate=(
+                "위험도: %{y:.1f}%<br>"
+                "VOD 예측: %{x:.1f}건<br>"
+                "실제 해지: %{customdata[0]}<extra>" + _Q_LABEL[q] + "</extra>"
+            ),
+        ))
+
+# 현재 고객 마커
+fig_quad.add_trace(go.Scatter(
+    x=[vod_purchase], y=[churn_risk],
+    mode="markers+text",
+    name="📍 현재 고객",
+    marker=dict(color="#003876", size=18, symbol="star",
+                line=dict(color="white", width=1.5)),
+    text=["현재 고객"],
+    textposition="top center",
+    textfont=dict(size=12, color="#003876"),
+    hovertemplate=(
+        f"위험도: {churn_risk:.1f}%<br>VOD 예측: {vod_purchase:.1f}건"
+        "<extra>현재 고객</extra>"
+    ),
+))
+
+# 구분선
+fig_quad.add_hline(y=50, line=dict(color="#888", dash="dash", width=1.5))
+fig_quad.add_vline(x=1.0, line=dict(color="#888", dash="dash", width=1.5))
+
+# 4분면 레이블 annotation
+fig_quad.add_annotation(x=0.3, y=92, text="🔴 긴급 유지", showarrow=False,
+    font=dict(size=11, color="#CC0000"), bgcolor="rgba(255,229,229,0.8)", borderpad=4)
+fig_quad.add_annotation(x=6, y=92, text="🟠 유지+재구매", showarrow=False,
+    font=dict(size=11, color="#FF8C00"), bgcolor="rgba(255,240,220,0.8)", borderpad=4)
+fig_quad.add_annotation(x=0.3, y=8, text="🟡 첫구매 유도", showarrow=False,
+    font=dict(size=11, color="#B8860B"), bgcolor="rgba(255,250,220,0.8)", borderpad=4)
+fig_quad.add_annotation(x=6, y=8, text="🟢 업셀링", showarrow=False,
+    font=dict(size=11, color="#28A745"), bgcolor="rgba(212,237,218,0.8)", borderpad=4)
+
+fig_quad.update_layout(
+    xaxis=dict(title="VOD 구매 예측 (건)", gridcolor="#F0F0F0", tickfont=dict(size=13),
+               range=[-0.5, max(quad_df["vod_purchase"].max() if not quad_df.empty else 10, vod_purchase) + 1]),
+    yaxis=dict(title="이탈 위험도 (%)", gridcolor="#F0F0F0", tickfont=dict(size=13), range=[0, 100]),
+    height=420, plot_bgcolor="white",
+    font=dict(size=13, color="#1A1A1A"),
+    margin=dict(l=10, r=10, t=30, b=10),
+    legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1,
+                font=dict(size=11)),
+    hovermode="closest",
+)
+st.plotly_chart(fig_quad, use_container_width=True)
+
+# 4분면별 고객 수 요약
+if not quad_df.empty:
+    qc = quad_df["quadrant"].value_counts()
+    total_q = len(quad_df)
+    qqa, qqb, qqc, qqd = st.columns(4)
+    for col, q, icon in [
+        (qqa, "Q1_고위험_저구매", "🔴"),
+        (qqb, "Q2_고위험_고구매", "🟠"),
+        (qqc, "Q3_저위험_저구매", "🟡"),
+        (qqd, "Q4_저위험_고구매", "🟢"),
+    ]:
+        cnt = int(qc.get(q, 0))
+        pct = cnt / total_q * 100 if total_q else 0
+        short = q.split("_", 1)[1]
+        col.metric(f"{icon} {short}", f"{cnt}명", f"{pct:.0f}%")
+
+_model_tag = '<span class="data-badge">실측 모델</span>' if _USE_MODEL else '<span class="data-badge">공식 기반</span>'
+st.caption(f"분석 기준: {'저장된 모델 추론' if _USE_MODEL else '피처 가중치 공식'} {_model_tag if False else ''} | 수평선 y=50%: 고/저위험 경계 | 수직선 x=1건: 구매 경계")
+
+st.markdown("---")
 
 # ── 세그먼트 해지율 ───────────────────────────
 st.markdown('<div class="section-header">📊 세그먼트별 해지율 (실제 연구 결과) <span class="data-badge">실제 데이터</span></div>', unsafe_allow_html=True)
