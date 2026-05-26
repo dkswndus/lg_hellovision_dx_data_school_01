@@ -1,0 +1,22 @@
+# 대용량 데이터 / 산출물 — 이미지에 포함하지 않음
+data/
+output/
+*.duckdb
+
+# 학습·분석 스크립트 (대시보드 이미지에는 불필요)
+scripts/
+tests/
+docs/
+
+# 파이썬 캐시 / 가상환경
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# git / IDE / 문서
+.git/
+.github/
+.vscode/
+*.md
