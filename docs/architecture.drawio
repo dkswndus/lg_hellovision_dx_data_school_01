@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="lghv-arch" name="아키텍처">
-        <mxGraphModel dx="318" dy="256" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1560" pageHeight="640" math="0" shadow="0">
+        <mxGraphModel dx="636" dy="512" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1560" pageHeight="640" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -35,67 +35,67 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="grpTools" value="Tools" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F8FC;strokeColor=#C2D0E0;verticalAlign=top;align=center;fontStyle=1;fontSize=11;fontColor=#3A5170;spacingTop=4;" parent="1" vertex="1">
-                    <mxGeometry x="330" y="285" width="300" height="180" as="geometry"/>
+                    <mxGeometry x="334" y="285" width="440" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="tl_lbl1" value="데이터 처리" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCE6F2;strokeColor=#A9BDD4;fontSize=9;fontColor=#26384F;fontStyle=1;" parent="1" vertex="1">
-                    <mxGeometry x="345" y="315" width="80" height="33" as="geometry"/>
+                    <mxGeometry x="422" y="315" width="80" height="33" as="geometry"/>
                 </mxCell>
                 <mxCell id="tl_val1" value="pandas · NumPy · DuckDB · PyArrow" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9BDD4;fontSize=9;fontColor=#26384F;" parent="1" vertex="1">
-                    <mxGeometry x="430" y="315" width="185" height="33" as="geometry"/>
+                    <mxGeometry x="507" y="315" width="185" height="33" as="geometry"/>
                 </mxCell>
                 <mxCell id="tl_lbl2" value="모델링" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCE6F2;strokeColor=#A9BDD4;fontSize=9;fontColor=#26384F;fontStyle=1;" parent="1" vertex="1">
-                    <mxGeometry x="345" y="353" width="80" height="33" as="geometry"/>
+                    <mxGeometry x="422" y="353" width="80" height="33" as="geometry"/>
                 </mxCell>
                 <mxCell id="tl_val2" value="scikit-learn · XGBoost · LightGBM · joblib" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9BDD4;fontSize=9;fontColor=#26384F;" parent="1" vertex="1">
-                    <mxGeometry x="430" y="353" width="185" height="33" as="geometry"/>
+                    <mxGeometry x="507" y="353" width="185" height="33" as="geometry"/>
                 </mxCell>
                 <mxCell id="tl_lbl3" value="통계 검정" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCE6F2;strokeColor=#A9BDD4;fontSize=9;fontColor=#26384F;fontStyle=1;" parent="1" vertex="1">
-                    <mxGeometry x="345" y="391" width="80" height="33" as="geometry"/>
+                    <mxGeometry x="422" y="391" width="80" height="33" as="geometry"/>
                 </mxCell>
                 <mxCell id="tl_val3" value="SciPy (t-test · chi2 · 효과크기)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9BDD4;fontSize=9;fontColor=#26384F;" parent="1" vertex="1">
-                    <mxGeometry x="430" y="391" width="185" height="33" as="geometry"/>
+                    <mxGeometry x="507" y="391" width="185" height="33" as="geometry"/>
                 </mxCell>
                 <mxCell id="tl_lbl4" value="시각화" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCE6F2;strokeColor=#A9BDD4;fontSize=9;fontColor=#26384F;fontStyle=1;" parent="1" vertex="1">
-                    <mxGeometry x="345" y="429" width="80" height="33" as="geometry"/>
+                    <mxGeometry x="422" y="429" width="80" height="33" as="geometry"/>
                 </mxCell>
                 <mxCell id="tl_val4" value="matplotlib · Plotly" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9BDD4;fontSize=9;fontColor=#26384F;" parent="1" vertex="1">
-                    <mxGeometry x="430" y="429" width="185" height="33" as="geometry"/>
+                    <mxGeometry x="507" y="429" width="185" height="33" as="geometry"/>
                 </mxCell>
                 <mxCell id="grpDev" value="DevOps" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F8FC;strokeColor=#C2D0E0;verticalAlign=top;align=center;fontStyle=1;fontSize=11;fontColor=#3A5170;spacingTop=4;" parent="1" vertex="1">
-                    <mxGeometry x="330" y="477" width="300" height="80" as="geometry"/>
+                    <mxGeometry x="334" y="477" width="440" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="dv1" value="Streamlit Cloud" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9BDD4;fontSize=10;fontColor=#26384F;" parent="1" vertex="1">
-                    <mxGeometry x="345" y="509" width="105" height="34" as="geometry"/>
+                    <mxGeometry x="365" y="509" width="105" height="34" as="geometry"/>
                 </mxCell>
                 <mxCell id="dv2" value="Docker" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9BDD4;fontSize=10;fontColor=#26384F;" parent="1" vertex="1">
-                    <mxGeometry x="460" y="509" width="70" height="34" as="geometry"/>
+                    <mxGeometry x="480" y="509" width="70" height="34" as="geometry"/>
                 </mxCell>
                 <mxCell id="dv3" value="CI / pytest" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9BDD4;fontSize=10;fontColor=#26384F;" parent="1" vertex="1">
-                    <mxGeometry x="540" y="509" width="85" height="34" as="geometry"/>
+                    <mxGeometry x="560" y="509" width="85" height="34" as="geometry"/>
                 </mxCell>
                 <mxCell id="agentBox" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E3D50;strokeWidth=2;" parent="1" vertex="1">
-                    <mxGeometry x="800" y="175" width="300" height="390" as="geometry"/>
+                    <mxGeometry x="826" y="175" width="300" height="390" as="geometry"/>
                 </mxCell>
                 <mxCell id="agentHdr" value="에이전트 오케스트레이션 흐름 (설계 · .github/agents)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2E3D50;strokeColor=none;fontColor=#FFFFFF;fontStyle=1;fontSize=11;align=center;verticalAlign=middle;" parent="1" vertex="1">
-                    <mxGeometry x="801" y="176" width="298" height="32" as="geometry"/>
+                    <mxGeometry x="827" y="176" width="298" height="32" as="geometry"/>
                 </mxCell>
                 <mxCell id="ag_ctrl" value="Control Agent (오케스트레이터)&#xa;흐름 · 라우팅" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4472A8;strokeColor=#2E3D50;fontSize=11;fontColor=#FFFFFF;fontStyle=1;" parent="1" vertex="1">
-                    <mxGeometry x="850" y="218" width="200" height="40" as="geometry"/>
+                    <mxGeometry x="876" y="218" width="200" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="ag_ds" value="Data Scientist Agent&#xa;피처 엔지니어링 · 변수 선정" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F9;strokeColor=#A9BDD4;fontSize=10;fontColor=#26384F;" parent="1" vertex="1">
-                    <mxGeometry x="850" y="288" width="200" height="38" as="geometry"/>
+                    <mxGeometry x="876" y="288" width="200" height="38" as="geometry"/>
                 </mxCell>
                 <mxCell id="ag_eval" value="Eval Agent&#xa;지표 검증 (PRC-AUC≥0.5 · R²≥0.6)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F9;strokeColor=#A9BDD4;fontSize=10;fontColor=#26384F;" parent="1" vertex="1">
-                    <mxGeometry x="850" y="358" width="200" height="38" as="geometry"/>
+                    <mxGeometry x="876" y="358" width="200" height="38" as="geometry"/>
                 </mxCell>
                 <mxCell id="ag_mlops" value="ML Ops Agent&#xa;모델 학습 · 저장 · 서빙" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F2E6;strokeColor=#82B366;fontSize=10;fontColor=#26384F;" parent="1" vertex="1">
-                    <mxGeometry x="810" y="438" width="130" height="38" as="geometry"/>
+                    <mxGeometry x="836" y="438" width="130" height="38" as="geometry"/>
                 </mxCell>
                 <mxCell id="ag_web" value="Web Agent&#xa;Streamlit 대시보드" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F2E6;strokeColor=#82B366;fontSize=10;fontColor=#26384F;" parent="1" vertex="1">
-                    <mxGeometry x="810" y="500" width="130" height="38" as="geometry"/>
+                    <mxGeometry x="836" y="500" width="130" height="38" as="geometry"/>
                 </mxCell>
                 <mxCell id="ag_hitl" value="Human-in-the-Loop&#xa;사람 개입 · 검토" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8E1E0;strokeColor=#C98A88;fontSize=10;fontColor=#8A3A38;fontStyle=1;" parent="1" vertex="1">
-                    <mxGeometry x="960" y="438" width="130" height="38" as="geometry"/>
+                    <mxGeometry x="986" y="438" width="130" height="38" as="geometry"/>
                 </mxCell>
                 <mxCell id="ae1" style="html=1;endArrow=block;strokeColor=#4472A8;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="ag_ctrl" target="ag_ds" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -116,27 +116,26 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="svcBox" value="🤖 AI 분석 서비스" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF1F8;strokeColor=#8AA4C2;verticalAlign=top;align=center;fontStyle=1;fontSize=13;fontColor=#26384F;spacingTop=10;" parent="1" vertex="1">
-                    <mxGeometry x="1150" y="160" width="340" height="420" as="geometry"/>
+                    <mxGeometry x="1250" y="160" width="340" height="420" as="geometry"/>
                 </mxCell>
                 <mxCell id="sv1" value="해지 위험 예측 (0–100% 등급)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9BDD4;fontSize=11;fontColor=#26384F;" parent="1" vertex="1">
-                    <mxGeometry x="1175" y="215" width="290" height="44" as="geometry"/>
+                    <mxGeometry x="1275" y="215" width="290" height="44" as="geometry"/>
                 </mxCell>
                 <mxCell id="sv2" value="VOD 구매 예측 (다음 달 건수)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9BDD4;fontSize=11;fontColor=#26384F;" parent="1" vertex="1">
-                    <mxGeometry x="1175" y="269" width="290" height="44" as="geometry"/>
+                    <mxGeometry x="1275" y="269" width="290" height="44" as="geometry"/>
                 </mxCell>
                 <mxCell id="sv3" value="TV → VOD 세그먼트 분석" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9BDD4;fontSize=11;fontColor=#26384F;" parent="1" vertex="1">
-                    <mxGeometry x="1175" y="323" width="290" height="44" as="geometry"/>
+                    <mxGeometry x="1275" y="323" width="290" height="44" as="geometry"/>
                 </mxCell>
                 <mxCell id="sv4" value="마케팅 전략 추천 (위험×구매 4분면)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9BDD4;fontSize=11;fontColor=#26384F;" parent="1" vertex="1">
-                    <mxGeometry x="1175" y="377" width="290" height="44" as="geometry"/>
+                    <mxGeometry x="1275" y="377" width="290" height="44" as="geometry"/>
                 </mxCell>
                 <mxCell id="sv5" value="변수 중요도 · 시청 트렌드" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9BDD4;fontSize=11;fontColor=#26384F;" parent="1" vertex="1">
-                    <mxGeometry x="1175" y="431" width="290" height="44" as="geometry"/>
+                    <mxGeometry x="1275" y="431" width="290" height="44" as="geometry"/>
                 </mxCell>
                 <mxCell id="sv6" value="Streamlit 대시보드 제공" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9BDD4;fontSize=11;fontColor=#26384F;" parent="1" vertex="1">
-                    <mxGeometry x="1175" y="485" width="290" height="44" as="geometry"/>
+                    <mxGeometry x="1275" y="485" width="290" height="44" as="geometry"/>
                 </mxCell>
-
                 <mxCell id="f3" value="구성 · 학습" style="html=1;endArrow=block;strokeColor=#4472A8;strokeWidth=2;fontSize=10;fontColor=#4472A8;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="grpTools" target="agentBox" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
