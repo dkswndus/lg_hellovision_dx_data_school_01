@@ -11,7 +11,7 @@
                     <mxGeometry x="58" y="38" width="400" height="38" as="geometry"/>
                 </mxCell>
                 <mxCell id="studio" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF1F8;strokeColor=#8AA4C2;verticalAlign=top;" parent="1" vertex="1">
-                    <mxGeometry x="300" y="140" width="800" height="440" as="geometry"/>
+                    <mxGeometry x="300" y="140" width="880" height="470" as="geometry"/>
                 </mxCell>
                 <mxCell id="studioHdr" value="LG헬로비전 ML 파이프라인 · 에이전트 설계" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E3D50;strokeColor=none;fontColor=#FFFFFF;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;" parent="1" vertex="1">
                     <mxGeometry x="470" y="122" width="460" height="34" as="geometry"/>
@@ -74,28 +74,28 @@
                     <mxGeometry x="540" y="509" width="85" height="34" as="geometry"/>
                 </mxCell>
                 <mxCell id="agentBox" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E3D50;strokeWidth=2;" parent="1" vertex="1">
-                    <mxGeometry x="690" y="175" width="385" height="390" as="geometry"/>
+                    <mxGeometry x="800" y="175" width="300" height="390" as="geometry"/>
                 </mxCell>
                 <mxCell id="agentHdr" value="에이전트 오케스트레이션 흐름 (설계 · .github/agents)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2E3D50;strokeColor=none;fontColor=#FFFFFF;fontStyle=1;fontSize=11;align=center;verticalAlign=middle;" parent="1" vertex="1">
-                    <mxGeometry x="691" y="176" width="383" height="32" as="geometry"/>
+                    <mxGeometry x="801" y="176" width="298" height="32" as="geometry"/>
                 </mxCell>
                 <mxCell id="ag_ctrl" value="Control Agent (오케스트레이터)&#xa;흐름 · 라우팅" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4472A8;strokeColor=#2E3D50;fontSize=11;fontColor=#FFFFFF;fontStyle=1;" parent="1" vertex="1">
-                    <mxGeometry x="757" y="218" width="250" height="40" as="geometry"/>
+                    <mxGeometry x="850" y="218" width="200" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="ag_ds" value="Data Scientist Agent&#xa;피처 엔지니어링 · 변수 선정" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F9;strokeColor=#A9BDD4;fontSize=10;fontColor=#26384F;" parent="1" vertex="1">
-                    <mxGeometry x="757" y="288" width="250" height="38" as="geometry"/>
+                    <mxGeometry x="850" y="288" width="200" height="38" as="geometry"/>
                 </mxCell>
                 <mxCell id="ag_eval" value="Eval Agent&#xa;지표 검증 (PRC-AUC≥0.5 · R²≥0.6)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F9;strokeColor=#A9BDD4;fontSize=10;fontColor=#26384F;" parent="1" vertex="1">
-                    <mxGeometry x="757" y="358" width="250" height="38" as="geometry"/>
+                    <mxGeometry x="850" y="358" width="200" height="38" as="geometry"/>
                 </mxCell>
                 <mxCell id="ag_mlops" value="ML Ops Agent&#xa;모델 학습 · 저장 · 서빙" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F2E6;strokeColor=#82B366;fontSize=10;fontColor=#26384F;" parent="1" vertex="1">
-                    <mxGeometry x="712" y="438" width="165" height="38" as="geometry"/>
+                    <mxGeometry x="810" y="438" width="130" height="38" as="geometry"/>
                 </mxCell>
                 <mxCell id="ag_web" value="Web Agent&#xa;Streamlit 대시보드" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F2E6;strokeColor=#82B366;fontSize=10;fontColor=#26384F;" parent="1" vertex="1">
-                    <mxGeometry x="712" y="500" width="165" height="38" as="geometry"/>
+                    <mxGeometry x="810" y="500" width="130" height="38" as="geometry"/>
                 </mxCell>
                 <mxCell id="ag_hitl" value="Human-in-the-Loop&#xa;사람 개입 · 검토" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8E1E0;strokeColor=#C98A88;fontSize=10;fontColor=#8A3A38;fontStyle=1;" parent="1" vertex="1">
-                    <mxGeometry x="895" y="438" width="165" height="38" as="geometry"/>
+                    <mxGeometry x="960" y="438" width="130" height="38" as="geometry"/>
                 </mxCell>
                 <mxCell id="ae1" style="html=1;endArrow=block;strokeColor=#4472A8;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="ag_ctrl" target="ag_ds" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -137,7 +137,7 @@
                     <mxGeometry x="1175" y="485" width="290" height="44" as="geometry"/>
                 </mxCell>
 
-                <mxCell id="f3" value="구성 · 학습" style="html=1;endArrow=block;strokeColor=#4472A8;strokeWidth=2;fontSize=10;fontColor=#4472A8;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.13;entryDx=0;entryDy=0;" parent="1" source="grpTools" target="agentBox" edge="1">
+                <mxCell id="f3" value="구성 · 학습" style="html=1;endArrow=block;strokeColor=#4472A8;strokeWidth=2;fontSize=10;fontColor=#4472A8;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="grpTools" target="agentBox" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="f4" value="결과 제공" style="html=1;endArrow=block;strokeColor=#4472A8;strokeWidth=2;fontSize=10;fontColor=#4472A8;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="agentBox" target="svcBox" edge="1">
