@@ -10,7 +10,7 @@
                 <mxCell id="title" value="아키텍처" style="text;html=1;fontSize=24;fontStyle=1;align=left;verticalAlign=middle;fontColor=#2E3D50;" parent="1" vertex="1">
                     <mxGeometry x="58" y="38" width="400" height="38" as="geometry"/>
                 </mxCell>
-                <mxCell id="inData" value="&lt;b&gt;📚 원본 데이터&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;TPS 해지 (CSV · 4기간)&lt;br&gt;VOD 로그 (CSV · 10개월)&lt;br&gt;vod_mart · gallup_2023 (CSV · JSON)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF1F8;strokeColor=#8AA4C2;fontSize=12;align=center;verticalAlign=middle;fontColor=#26384F;" parent="1" vertex="1">
+                <mxCell id="inData" value="&lt;b&gt;📚 원본 데이터&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;TPS 해지 (CSV · 4기간)&lt;br&gt;VOD 로그 (CSV · 10개월)&lt;br&gt;VOD 마트 · 갤럽 조사 (CSV · JSON)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF1F8;strokeColor=#8AA4C2;fontSize=12;align=center;verticalAlign=middle;fontColor=#26384F;" parent="1" vertex="1">
                     <mxGeometry x="40" y="215" width="215" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="studio" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF1F8;strokeColor=#8AA4C2;verticalAlign=top;" parent="1" vertex="1">
@@ -25,7 +25,7 @@
                 <mxCell id="kn1" value="EDA · 전처리" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9BDD4;fontSize=10;fontColor=#26384F;" parent="1" vertex="1">
                     <mxGeometry x="350" y="225" width="120" height="44" as="geometry"/>
                 </mxCell>
-                <mxCell id="kn2" value="Feature 데이터셋 (Parquet)&lt;br&gt;churn v1/v2/v3 · VOD · channel" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9BDD4;fontSize=10;fontColor=#26384F;" parent="1" vertex="1">
+                <mxCell id="kn2" value="학습 데이터셋 (Parquet)&lt;br&gt;해지(v1~v3) · VOD 구매 · 채널" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9BDD4;fontSize=10;fontColor=#26384F;" parent="1" vertex="1">
                     <mxGeometry x="490" y="225" width="125" height="44" as="geometry"/>
                 </mxCell>
                 <mxCell id="knArr" value="" style="html=1;endArrow=block;strokeColor=#4472A8;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="kn1" target="kn2" edge="1">
