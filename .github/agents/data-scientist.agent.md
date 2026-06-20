@@ -1,5 +1,12 @@
 # 3단계: Data Scientist 에이전트
 
+> ⚠️ **DEPRECATED — 책무가 다음 3개 에이전트로 분리되었습니다:**
+> - 분포 분석 → [data-profiler-agent.agent.md](data-profiler-agent.agent.md)
+> - 그룹별 시각화·가설검정 → [eda-agent.agent.md](eda-agent.agent.md)
+> - 파생변수 생성·변수 사전 → [feature-engineering-agent.agent.md](feature-engineering-agent.agent.md)
+>
+> 본 파일은 변수 정의·CT_CL 비율 등 **기존 분석 결과의 레퍼런스** 로만 유지합니다.
+
 **설계지침서 산출물** — 데이터 분포 분석·피처 엔지니어링 역할
 
 ---

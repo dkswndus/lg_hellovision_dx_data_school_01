@@ -8,6 +8,14 @@
       "source": "bundled",
       "installed_at": "2026-06-20T12:52:02.620999+00:00",
       "updated_at": "2026-06-20T12:52:02.621011+00:00"
+    },
+    "churn-pipeline": {
+      "name": "LG\ud5ec\ub85c\ube44\uc804 Churn Prediction Pipeline (Semi-auto)",
+      "version": "1.0.0",
+      "description": "11-agent ML pipeline: profiler \u2192 leakage \u2192 eda \u2192 FE \u2192 modeling \u2192 eval \u2192 explain \u2192 ops/web with 4 checkpoints and HITL triggers",
+      "source": "local",
+      "installed_at": "2026-06-20T13:00:00.000000+00:00",
+      "updated_at": "2026-06-20T13:00:00.000000+00:00"
     }
   }
 }

@@ -1,0 +1,143 @@
+schema_version: "1.0"
+workflow:
+  id: "churn-pipeline"
+  name: "LG헬로비전 Churn Prediction Pipeline (Semi-auto)"
+  version: "1.0.0"
+  author: "Juyeon"
+  description: >
+    11개 에이전트로 구성된 해지 예측 파이프라인. profiler → leakage → eda →
+    feature engineering → modeling (4모델 병렬) → eval → explanation → ops/web.
+    4개 체크포인트와 HITL 트리거 포함.
+
+requires:
+  speckit_version: ">=0.8.5"
+  integrations:
+    any:
+      - "claude"
+
+inputs:
+  task:
+    type: string
+    required: true
+    default: "churn"
+    enum: ["churn", "vod_purchase"]
+    prompt: "예측 태스크 (churn / vod_purchase)"
+  run_id:
+    type: string
+    default: "auto"
+    prompt: "Run ID (default auto = YYYYMMDD-HHmmss)"
+  skip_steps:
+    type: string
+    default: ""
+    prompt: "건너뛸 단계명 (쉼표 구분, 예: 'profiler,leakage')"
+
+steps:
+  # ─────────────────────────────────────────────────────────
+  # ① 데이터 진단
+  # ─────────────────────────────────────────────────────────
+  - id: profile
+    agent: data-profiler-agent
+    outputs:
+      - output/profile/{table}_profile.json
+      - output/profile/{table}_profile.md
+
+  # ─────────────────────────────────────────────────────────
+  # ② 누수 점검 + 체크포인트 1
+  # ─────────────────────────────────────────────────────────
+  - id: leakage
+    agent: leakage-checker-agent
+    outputs:
+      - output/leakage/leakage_report.json
+    on_critical_finding: hitl
+
+  - id: review-leakage
+    type: gate
+    message: "Leakage report 검토 — drop 컬럼을 확정하세요."
+    options: [approve, reject, edit-and-rerun]
+    on_reject: abort
+
+  # ─────────────────────────────────────────────────────────
+  # ③ EDA + 체크포인트 2
+  # ─────────────────────────────────────────────────────────
+  - id: eda
+    agent: eda-agent
+    outputs:
+      - output/eda/eda_summary.md
+      - output/eda/hypothesis_tests.csv
+
+  - id: review-eda
+    type: gate
+    message: "EDA 결과 검토 — 새 피처 아이디어를 보완하세요."
+    options: [approve, skip]
+    on_reject: continue
+
+  # ─────────────────────────────────────────────────────────
+  # ④ Feature Engineering
+  # ─────────────────────────────────────────────────────────
+  - id: feature-engineering
+    agent: feature-engineering-agent
+    outputs:
+      - data/processed/{dataset}.parquet
+      - output/features/feature_spec.json
+
+  # ─────────────────────────────────────────────────────────
+  # ⑤ Modeling (병렬)
+  # ─────────────────────────────────────────────────────────
+  - id: modeling
+    agent: modeling-agent
+    parallel:
+      - baseline
+      - lightgbm
+      - xgboost
+      - catboost
+    outputs:
+      - output/models/leaderboard.csv
+
+  # ─────────────────────────────────────────────────────────
+  # ⑥ Evaluation + 체크포인트 3
+  # ─────────────────────────────────────────────────────────
+  - id: evaluation
+    agent: eval-agent
+    gate:
+      churn:
+        prc_auc: ">=0.5"
+      vod_purchase:
+        r2: ">=0.6"
+        mae: "<=0.6"
+    on_fail: hitl
+
+  - id: review-leaderboard
+    type: gate
+    message: "Leaderboard 검토 — 우승 모델을 확정하세요."
+    options: [approve, retrain]
+    on_reject: abort
+
+  # ─────────────────────────────────────────────────────────
+  # ⑦ Explanation + 체크포인트 4
+  # ─────────────────────────────────────────────────────────
+  - id: explain
+    agent: explanation-agent
+    outputs:
+      - output/explain/shap_summary.png
+      - output/explain/explain_brief.md
+
+  - id: review-explanation
+    type: gate
+    message: "Explanation 검토 — 비즈니스 해석의 타당성을 확인하세요."
+    options: [approve, reject]
+    on_reject: abort
+
+  # ─────────────────────────────────────────────────────────
+  # ⑧ ML Ops (옵션)
+  # ─────────────────────────────────────────────────────────
+  - id: ops
+    agent: ml-ops
+    optional: true
+
+  # ─────────────────────────────────────────────────────────
+  # ⑨ Web 대시보드 갱신
+  # ─────────────────────────────────────────────────────────
+  - id: web
+    agent: web-agent
+    outputs:
+      - dashboard/app.py

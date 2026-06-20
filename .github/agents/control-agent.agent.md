@@ -1,89 +1,29 @@
 ---
-name: Control Agent
-description: 에이전트 간 흐름·라우팅·오케스트레이션
+name: Control Agent (DEPRECATED)
+description: → supervisor-agent.agent.md 로 이전됨. 본 파일은 백워드 호환용 스텁.
 ---
-# 에이전트 아키텍처: 제어 에이전트 (Control Agent)
+# Control Agent (DEPRECATED)
 
-**설계지침서 산출물** — 흐름·라우팅·오케스트레이션 역할
-
----
-
-## 역할
-
-에이전트 간 실행 순서를 조율하고 태스크를 적절한 에이전트로 라우팅합니다.
+> ⚠️ **이 에이전트는 [Supervisor Agent](supervisor-agent.agent.md) 로 격상·리네임되었습니다.**
+> 백워드 호환을 위해 파일은 유지하지만 신규 작업은 supervisor-agent 를 참조하세요.
 
 ---
 
-## 라우팅 규칙
+## 이전 사유
 
-| 입력 태스크 | 담당 에이전트 |
-|------------|--------------|
-| 데이터 분포 분석, 피처 엔지니어링 | data-scientist |
-| 모델 배포, 서빙 환경 최적화 | ml-ops |
-| 출력 품질 검증 | eval-agent |
-| 대시보드/시각화/사용자 인터페이스 | web-agent |
-| 지표 미달 또는 불확실 구간 | human-in-the-loop |
+11-에이전트 ML 파이프라인(profiler → leakage → eda → FE → modeling → eval → explain → ops/web) 도입에 맞춰 **semi-auto 오케스트레이션 + 체크포인트 + HITL 트리거** 책무가 추가되어 역할 범위가 넓어졌습니다.
 
----
-
-## 오케스트레이션 흐름
-
-```mermaid
-flowchart TD
-    Control{{Control Agent<br/>흐름·라우팅·오케스트레이션}} --> DS[Data Scientist Agent<br/>피처 엔지니어링 · 변수 선정]
-    DS --> Eval{Eval Agent<br/>지표 검증<br/>PRC-AUC ≥ 0.5<br/>R² ≥ 0.6 · MAE ≤ 0.6}
-
-    Eval -->|✅ 통과| MLOps[ML Ops Agent<br/>Parquet · DuckDB · 서빙]
-    Eval -->|❌ 미통과| Red[🔴 Red 사이클 재진입]
-
-    MLOps --> Web[Web Agent<br/>Streamlit 대시보드]
-
-    Red --> Check{임계값 미달<br/>또는 누수 의심?}
-    Check -->|예| HITL[Human-in-the-Loop<br/>사람 개입·검토]
-    Check -->|아니오| DS
-
-    HITL -.재진입.-> DS
-
-    classDef control fill:#003876,stroke:#001f4d,color:#fff,stroke-width:2px
-    classDef agent fill:#0066CC,stroke:#003876,color:#fff,stroke-width:2px
-    classDef eval fill:#FFA500,stroke:#cc8400,color:#fff,stroke-width:2px
-    classDef ops fill:#28A745,stroke:#1e7e34,color:#fff,stroke-width:2px
-    classDef web fill:#6F42C1,stroke:#553098,color:#fff,stroke-width:2px
-    classDef hitl fill:#DC3545,stroke:#a71d2a,color:#fff,stroke-width:2px
-    classDef red fill:#FFE5E5,stroke:#CC0000,color:#CC0000,stroke-width:2px
-
-    class Control control
-    class DS agent
-    class Eval eval
-    class MLOps ops
-    class Web web
-    class HITL hitl
-    class Red,Check red
-```
-
-### 흐름 설명
-
-| 단계 | 에이전트 | 역할 |
-|------|---------|------|
-| 1️⃣ | **Control Agent** | 작업을 받아 적절한 에이전트로 라우팅 |
-| 2️⃣ | **Data Scientist** | 피처 엔지니어링·모델 실험 |
-| 3️⃣ | **Eval Agent** | 지표 임계값 검증 |
-| 4-A | **ML Ops** (통과) | 서빙 환경 구성 |
-| 4-B | **Red 사이클** (미통과) | 재학습 또는 HITL |
-| 5️⃣ | **Web Agent** | 결과를 대시보드로 제공 |
-| ⚠️ | **Human-in-the-Loop** | 임계값 미달 시 사람 개입 |
+| 구분 | Control Agent (구) | Supervisor Agent (신) |
+|------|-------------------|----------------------|
+| 자율성 | 수동 라우팅 | Semi-auto 파이프라인 실행 |
+| 체크포인트 | 없음 | 4곳 (leakage·eda·leaderboard·explain) |
+| HITL 트리거 | 임계값 미달만 | + leakage CRITICAL, 키 중복, 시점 누수 |
+| 워크플로 | 문서 텍스트 | `.specify/workflows/churn-pipeline/workflow.yml` |
 
 ---
 
-## 현재 상태
+## 이동 안내
 
-- 수동 오케스트레이션 (`scripts/` 순차 실행)
-- 6단계 통합 검증 후 자동화 파이프라인 전환 예정
-
----
-
-## 관련 문서
-
-- [harness.md](../instructions/harness.md) — 하네스 실행 환경
-- [eval-agent.agent.md](eval-agent.agent.md) — 검증 기준
-- [HUMAN_IN_THE_LOOP.md](../../docs/HUMAN_IN_THE_LOOP.md) — 개입 설계
+- 라우팅 규칙·HITL 트리거: → [supervisor-agent.agent.md](supervisor-agent.agent.md)
+- 파이프라인 정의: → [.specify/workflows/churn-pipeline/workflow.yml](../../.specify/workflows/churn-pipeline/workflow.yml)
+- 변경 이력: `git log .github/agents/control-agent.agent.md`
