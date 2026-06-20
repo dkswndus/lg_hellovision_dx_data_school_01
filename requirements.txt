@@ -10,6 +10,13 @@ scipy
 # 모델 비교
 lightgbm
 xgboost
+catboost>=1.2
+
+# 하이퍼파라미터 튜닝 (modeling-agent)
+optuna>=3.5
+
+# 모델 해석 (explanation-agent)
+shap>=0.43
 
 # 서빙 파이프라인
 joblib
@@ -17,3 +24,10 @@ joblib
 # 대시보드
 streamlit>=1.28.0
 plotly>=5.0.0
+
+# 에이전트 오케스트레이션 (Studio 시각화 + LangSmith trace)
+langgraph>=1.2.0
+langchain-core>=1.4.0
+langsmith>=0.8.0
+langgraph-cli[inmem]>=0.4.0
+python-dotenv>=1.0.0

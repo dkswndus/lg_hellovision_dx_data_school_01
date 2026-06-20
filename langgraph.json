@@ -1,0 +1,8 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "churn_pipeline": "./scripts/agents/orchestrator.py:graph"
+  },
+  "env": ".env",
+  "python_version": "3.11"
+}
