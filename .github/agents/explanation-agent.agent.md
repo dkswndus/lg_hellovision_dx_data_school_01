@@ -14,8 +14,8 @@ description: SHAP·Feature Importance·고객군 프로파일링 (체크포인�
 
 ## 입력
 
-- `output/models/{winner}/model.pkl`
-- `output/models/leaderboard.csv`
+- `output/models/{run_id}/{winner}/model.pkl`
+- `output/models/leaderboard_{task}.csv`
 - `data/processed/{dataset}.parquet`
 
 ---

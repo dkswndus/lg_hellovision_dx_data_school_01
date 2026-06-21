@@ -5,6 +5,7 @@
 data/raw/*.csv
 data/*.duckdb
 data/interim/*.parquet
+data/processed/
 # parquet 추적 (user_profile, vod_content, vod_log)
 !data/interim/user_profile.parquet
 !data/interim/user_profile_clean.parquet
@@ -12,6 +13,12 @@ data/interim/*.parquet
 !data/interim/vod_content_clean.parquet
 !data/interim/vod_log.parquet
 !data/interim/vod_log_clean.parquet
+
+# 임시 작업 파일 (DuckDB spill 등 — 수십 GB까지 커질 수 있음)
+.tmp/
+
+# 모델 바이너리 (재생성 가능) — leaderboard_*.csv 등 요약 산출물만 추적
+output/models/*/
 
 # Python
 __pycache__/
@@ -25,6 +32,9 @@ venv/
 # LangGraph dev 캐시 + 전용 venv (Python 3.11)
 .langgraph_api/
 .venv-langgraph/
+
+# CatBoost 학습 로그 (modeling.py 실행시 cwd 에 자동 생성)
+catboost_info/
 
 # IDE
 .idea/

@@ -9,6 +9,7 @@ Studio 진입점: langgraph.json 의 graphs."churn_pipeline" -> "graph"
 from __future__ import annotations
 
 import os
+import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Annotated, Literal, TypedDict
@@ -19,6 +20,15 @@ from langgraph.graph import END, START, StateGraph
 load_dotenv()
 
 BASE = Path(__file__).resolve().parent.parent.parent
+if str(BASE) not in sys.path:
+    sys.path.insert(0, str(BASE))
+
+from scripts.agents.eda import run_eda  # noqa: E402
+from scripts.agents.evaluation import run_evaluation  # noqa: E402
+from scripts.agents.feature_engineering import run_feature_engineering  # noqa: E402
+from scripts.agents.leakage_checker import check_leakage  # noqa: E402
+from scripts.agents.modeling import run_modeling  # noqa: E402
+from scripts.agents.profiler import profile_dataset  # noqa: E402
 
 
 # ────────────────────────────────────────────────────────────────────
@@ -43,6 +53,11 @@ class ChurnPipelineState(TypedDict, total=False):
     feature_spec_path: str
     leaderboard_path: str
     explain_brief_path: str
+
+    # modeling 노드 튜닝 오버라이드 (미지정 시 scripts/agents/modeling.py 기본값 사용)
+    model_n_trials: int
+    model_tune_timeout: int
+    model_sample_size: int
 
     # 의사결정·게이트
     leakage_severity: Literal["none", "warn", "critical"]
@@ -75,56 +90,57 @@ def supervisor(state: ChurnPipelineState) -> ChurnPipelineState:
 
 
 def data_profiler(state: ChurnPipelineState) -> ChurnPipelineState:
-    table = "churn_dataset_v2" if state.get("task", "churn") == "churn" else "vod_purchase_dataset"
-    return _stub(
-        "data_profiler",
-        state,
-        profile_path=f"output/profile/{table}_profile.json",
-    )
+    """결측·dtype·타깃분포 진단 → output/profile/{table}_profile.json."""
+    result = profile_dataset(state.get("task", "churn"))
+    return _stub("data_profiler", state, profile_path=result["profile_path"])
 
 
 def leakage_checker(state: ChurnPipelineState) -> ChurnPipelineState:
+    """타깃 누수·시점 누수·중복 키 점검 → leakage_severity 로 HITL 라우팅."""
+    result = check_leakage(state.get("task", "churn"))
     return _stub(
         "leakage_checker",
         state,
-        leakage_report_path="output/leakage/leakage_report.json",
-        leakage_severity="none",  # stub: 실제 구현시 corr·시점·중복키 검사 결과
+        leakage_report_path=result["leakage_report_path"],
+        leakage_severity=result["leakage_severity"],
     )
 
 
 def eda(state: ChurnPipelineState) -> ChurnPipelineState:
-    return _stub(
-        "eda",
-        state,
-        eda_summary_path="output/eda/eda_summary.md",
-    )
+    """그룹별 분포비교·가설검정·시각화 → output/eda/{task}/."""
+    result = run_eda(state.get("task", "churn"))
+    return _stub("eda", state, eda_summary_path=result["eda_summary_path"])
 
 
 def feature_engineering(state: ChurnPipelineState) -> ChurnPipelineState:
-    return _stub(
-        "feature_engineering",
-        state,
-        feature_spec_path="output/features/feature_spec.json",
-    )
+    """기존 파생변수 변수사전(feature_spec.json) + RF 사전 중요도 산출."""
+    result = run_feature_engineering(state.get("task", "churn"))
+    return _stub("feature_engineering", state, feature_spec_path=result["feature_spec_path"])
 
 
 def modeling(state: ChurnPipelineState) -> ChurnPipelineState:
-    # 실제 구현시 LGBM/XGB/CatBoost 병렬 학습
-    return _stub(
-        "modeling",
-        state,
-        leaderboard_path="output/models/leaderboard.csv",
-    )
+    """Baseline + LightGBM·XGBoost·CatBoost 병렬 학습 → leaderboard.csv."""
+    kwargs = {"task": state.get("task", "churn"), "run_id": state.get("run_id")}
+    if "model_n_trials" in state:
+        kwargs["n_trials"] = state["model_n_trials"]
+    if "model_tune_timeout" in state:
+        kwargs["tune_timeout"] = state["model_tune_timeout"]
+    if "model_sample_size" in state:
+        kwargs["sample_size"] = state["model_sample_size"]
+
+    result = run_modeling(**kwargs)
+    return _stub("modeling", state, leaderboard_path=result["leaderboard_path"])
 
 
 def evaluation(state: ChurnPipelineState) -> ChurnPipelineState:
-    # 실제 구현시 leaderboard 읽어서 PRC-AUC≥0.5 / R²≥0.6 / MAE≤0.6 게이트 검증
+    """leaderboard.csv 게이트 검증: PRC-AUC≥0.5 (churn) / R²≥0.6, MAE≤0.6 (vod_purchase)."""
+    result = run_evaluation(task=state.get("task", "churn"))
     return _stub(
         "evaluation",
         state,
-        gate_pass=True,
-        winner_model="xgboost",
-        winner_metric=0.5214,
+        gate_pass=result["gate_pass"],
+        winner_model=result["winner_model"],
+        winner_metric=result["winner_metric"],
     )
 
 
@@ -171,7 +187,7 @@ def route_after_evaluation(state: ChurnPipelineState) -> Literal["hitl", "explan
 # ────────────────────────────────────────────────────────────────────
 
 
-def build_graph():
+def build_graph(checkpointer=None):
     builder = StateGraph(ChurnPipelineState)
 
     # 노드 등록
@@ -216,9 +232,11 @@ def build_graph():
     builder.add_edge("hitl", END)
 
     # 체크포인트 4곳: leakage·eda·evaluation·explanation 노드 *후* 사람 확인
-    # checkpointer 는 LangGraph platform/dev 가 자동 주입 (POSTGRES_URI 환경변수 참고)
+    # checkpointer 는 LangGraph platform/dev(Studio) 가 자동 주입 (POSTGRES_URI 환경변수 참고).
+    # CLI 직접 실행시엔 build_graph(checkpointer=...) 로 명시 주입해야 interrupt 이후 resume 가능.
     return builder.compile(
         interrupt_after=["leakage_checker", "eda", "evaluation", "explanation"],
+        checkpointer=checkpointer,
     )
 
 
@@ -227,8 +245,17 @@ graph = build_graph()
 
 
 if __name__ == "__main__":
-    # CLI 실행 (Studio 외에 직접 돌릴 때)
+    # CLI 실행 (Studio 외에 직접 돌릴 때) — InMemorySaver 로 interrupt 마다 자동 resume
+    from langgraph.checkpoint.memory import InMemorySaver
+
+    cli_graph = build_graph(checkpointer=InMemorySaver())
     config = {"configurable": {"thread_id": datetime.now().strftime("%Y%m%d-%H%M%S")}}
     initial = ChurnPipelineState(task="churn")
-    for step in graph.stream(initial, config=config):
-        print(step)
+
+    resume_input = initial
+    while True:
+        for step in cli_graph.stream(resume_input, config=config):
+            print(step)
+        if not cli_graph.get_state(config).next:
+            break
+        resume_input = None  # 체크포인트에서 이어서 진행

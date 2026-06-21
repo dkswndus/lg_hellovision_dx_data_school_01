@@ -1,0 +1,621 @@
+{
+  "table": "churn_dataset_v2",
+  "row_count": 2268472,
+  "col_count": 49,
+  "dtypes_map": {
+    "sha2_hash": "str",
+    "SVC_USE_DAYS_GRP": "int32",
+    "MEDIA_NM_GRP": "int32",
+    "PROD_NM_GRP": "int32",
+    "PROD_OLD_YN": "bool",
+    "PROD_ONE_PLUS_YN": "bool",
+    "AGMT_KIND_NM": "int32",
+    "STB_RES_1M_YN": "bool",
+    "SVOD_SCRB_CNT_GRP": "int32",
+    "PAID_CHNL_CNT_GRP": "int32",
+    "SCRB_PATH_NM_GRP": "int32",
+    "INHOME_RATE": "int32",
+    "AGMT_END_SEG": "int32",
+    "AGMT_END_YMD": "float64",
+    "TOTAL_USED_DAYS": "int64",
+    "TV_SCRB": "int64",
+    "ANALOG_SCRB": "float64",
+    "DIGITAL_SCRB": "int64",
+    "TOTAL_INTERNET_SCRB": "int64",
+    "GIGA_INTERNET_SCRB": "int64",
+    "BUNDLE_YN": "bool",
+    "DIGITAL_GIGA_YN": "bool",
+    "DIGITAL_ALOG_YN": "bool",
+    "TV_I_CNT": "float64",
+    "CH_LAST_DAYS_BF_GRP": "int32",
+    "VOC_TOTAL_MONTH1_YN": "bool",
+    "VOC_STOP_CANCEL_MONTH1_YN": "bool",
+    "AGE_GRP10": "int32",
+    "EMAIL_RECV_CLS_NM": "int32",
+    "SMS_SEND_CLS_NM": "int32",
+    "CH_HH_AVG_MONTH1": "float64",
+    "CH_25_RATIO_MONTH1": "float64",
+    "CH_25_RATIO_MEAN_3MM": "float64",
+    "CH_FAV_RNK1": "int32",
+    "KIDS_USE_PV_MONTH1": "float64",
+    "NFX_USE_YN": "bool",
+    "YTB_USE_YN": "bool",
+    "p_mt": "int64",
+    "cancel_yn": "int32",
+    "vod_view_cnt": "int64",
+    "vod_use_tms_sum": "int64",
+    "vod_asset_cnt": "int64",
+    "Flag_Kids": "int32",
+    "Flag_Movie": "int32",
+    "Recency": "int32",
+    "Total_Watch_Time": "int64",
+    "Log_Watch_Time": "float64",
+    "Is_Netflix": "int32",
+    "Risk_Segment_Kids_NFX": "int32"
+  },
+  "missing": {
+    "sha2_hash": 0.0,
+    "SVC_USE_DAYS_GRP": 0.0,
+    "MEDIA_NM_GRP": 0.0,
+    "PROD_NM_GRP": 0.0,
+    "PROD_OLD_YN": 0.0,
+    "PROD_ONE_PLUS_YN": 0.0,
+    "AGMT_KIND_NM": 0.0,
+    "STB_RES_1M_YN": 0.0,
+    "SVOD_SCRB_CNT_GRP": 0.0,
+    "PAID_CHNL_CNT_GRP": 0.0,
+    "SCRB_PATH_NM_GRP": 0.0,
+    "INHOME_RATE": 0.0,
+    "AGMT_END_SEG": 0.0,
+    "AGMT_END_YMD": 0.0078211236462253,
+    "TOTAL_USED_DAYS": 0.0,
+    "TV_SCRB": 0.0,
+    "ANALOG_SCRB": 0.00359801663851262,
+    "DIGITAL_SCRB": 0.0,
+    "TOTAL_INTERNET_SCRB": 0.0,
+    "GIGA_INTERNET_SCRB": 0.0,
+    "BUNDLE_YN": 0.0,
+    "DIGITAL_GIGA_YN": 0.0,
+    "DIGITAL_ALOG_YN": 0.0,
+    "TV_I_CNT": 0.0,
+    "CH_LAST_DAYS_BF_GRP": 0.0,
+    "VOC_TOTAL_MONTH1_YN": 0.0,
+    "VOC_STOP_CANCEL_MONTH1_YN": 0.0,
+    "AGE_GRP10": 0.0,
+    "EMAIL_RECV_CLS_NM": 0.0,
+    "SMS_SEND_CLS_NM": 0.0,
+    "CH_HH_AVG_MONTH1": 0.0,
+    "CH_25_RATIO_MONTH1": 0.0,
+    "CH_25_RATIO_MEAN_3MM": 0.0,
+    "CH_FAV_RNK1": 0.0,
+    "KIDS_USE_PV_MONTH1": 0.001292499973550478,
+    "NFX_USE_YN": 0.0,
+    "YTB_USE_YN": 0.0,
+    "p_mt": 0.0,
+    "cancel_yn": 0.0,
+    "vod_view_cnt": 0.0,
+    "vod_use_tms_sum": 0.0,
+    "vod_asset_cnt": 0.0,
+    "Flag_Kids": 0.0,
+    "Flag_Movie": 0.0,
+    "Recency": 0.0,
+    "Total_Watch_Time": 0.0,
+    "Log_Watch_Time": 0.0,
+    "Is_Netflix": 0.0,
+    "Risk_Segment_Kids_NFX": 0.0
+  },
+  "basic_stats": {
+    "sha2_hash": {
+      "top_k": [
+        {
+          "value": "f2a983dc81dba073b291ad0d8c9b3d164fe9fd51eefcf64272f5005f1221212b",
+          "count": 13
+        },
+        {
+          "value": "508b23e8c39931816646ff25ad1db4b6581b6c2f5ec8b2af1950c66548300a7a",
+          "count": 12
+        },
+        {
+          "value": "f297cd66240362f6f72326088b8ea4739ceb60fde267f40f44bc4bd35e8e9575",
+          "count": 12
+        },
+        {
+          "value": "0a71c9a3e2be327a8f55f60931ede8a22ae8efe76b12e645c0ea9742dcb69f2e",
+          "count": 12
+        },
+        {
+          "value": "c4b852a7fc6289537a0a873eec57ef216ceb90e67ef9790b0377acf1dc4939b3",
+          "count": 12
+        }
+      ]
+    },
+    "SVC_USE_DAYS_GRP": {
+      "mean": 1.862861432717706,
+      "std": 0.880823141041477,
+      "min": 0.0,
+      "max": 4.0,
+      "p25": 2.0,
+      "p50": 2.0,
+      "p75": 2.0
+    },
+    "MEDIA_NM_GRP": {
+      "mean": 0.28114960202285944,
+      "std": 0.45704943680146826,
+      "min": 0.0,
+      "max": 2.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 1.0
+    },
+    "PROD_NM_GRP": {
+      "mean": 2.645411977754189,
+      "std": 1.7339683714571164,
+      "min": 0.0,
+      "max": 5.0,
+      "p25": 1.0,
+      "p50": 1.0,
+      "p75": 4.0
+    },
+    "PROD_OLD_YN": {
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "p25": NaN,
+      "p50": NaN,
+      "p75": NaN
+    },
+    "PROD_ONE_PLUS_YN": {
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "p25": NaN,
+      "p50": NaN,
+      "p75": NaN
+    },
+    "AGMT_KIND_NM": {
+      "mean": 2.5163030445163086,
+      "std": 2.222484765141462,
+      "min": 0.0,
+      "max": 6.0,
+      "p25": 0.0,
+      "p50": 2.0,
+      "p75": 5.0
+    },
+    "STB_RES_1M_YN": {
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "p25": NaN,
+      "p50": NaN,
+      "p75": NaN
+    },
+    "SVOD_SCRB_CNT_GRP": {
+      "mean": 0.03198320279024824,
+      "std": 0.22333158672427258,
+      "min": 0.0,
+      "max": 3.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0
+    },
+    "PAID_CHNL_CNT_GRP": {
+      "mean": 0.04387005878847083,
+      "std": 0.23529791102565073,
+      "min": 0.0,
+      "max": 3.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0
+    },
+    "SCRB_PATH_NM_GRP": {
+      "mean": 4.504713304814871,
+      "std": 3.8802695863079664,
+      "min": 0.0,
+      "max": 9.0,
+      "p25": 1.0,
+      "p50": 4.0,
+      "p75": 9.0
+    },
+    "INHOME_RATE": {
+      "mean": 4.154354561131899,
+      "std": 3.593285459594154,
+      "min": 0.0,
+      "max": 11.0,
+      "p25": 1.0,
+      "p50": 4.0,
+      "p75": 6.0
+    },
+    "AGMT_END_SEG": {
+      "mean": 5.733142397173075,
+      "std": 3.5763649530081296,
+      "min": 1.0,
+      "max": 14.0,
+      "p25": 2.0,
+      "p50": 6.0,
+      "p75": 9.0
+    },
+    "AGMT_END_YMD": {
+      "mean": 20223902.315097325,
+      "std": 33232.2134744686,
+      "min": 20041013.0,
+      "max": 20271230.0,
+      "p25": 20200515.0,
+      "p50": 20240202.0,
+      "p75": 20250516.0
+    },
+    "TOTAL_USED_DAYS": {
+      "mean": 2718.3635209074655,
+      "std": 1229.8684870277746,
+      "min": 0.0,
+      "max": 45289.0,
+      "p25": 2004.0,
+      "p50": 2874.0,
+      "p75": 3629.0
+    },
+    "TV_SCRB": {
+      "mean": 2.1321682612789576,
+      "std": 9.64407994366853,
+      "min": 1.0,
+      "max": 255.0,
+      "p25": 1.0,
+      "p50": 2.0,
+      "p75": 2.0
+    },
+    "ANALOG_SCRB": {
+      "mean": 1.0418309877848613,
+      "std": 16.10817624213336,
+      "min": 0.0,
+      "max": 255.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0
+    },
+    "DIGITAL_SCRB": {
+      "mean": 1.7736260354987852,
+      "std": 2.7184857735098875,
+      "min": 1.0,
+      "max": 235.0,
+      "p25": 1.0,
+      "p50": 1.0,
+      "p75": 2.0
+    },
+    "TOTAL_INTERNET_SCRB": {
+      "mean": 0.5168531945732634,
+      "std": 0.9968905824357563,
+      "min": 0.0,
+      "max": 102.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 1.0
+    },
+    "GIGA_INTERNET_SCRB": {
+      "mean": 0.8289236102539507,
+      "std": 13.16773343105977,
+      "min": 0.0,
+      "max": 255.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0
+    },
+    "BUNDLE_YN": {
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "p25": NaN,
+      "p50": NaN,
+      "p75": NaN
+    },
+    "DIGITAL_GIGA_YN": {
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "p25": NaN,
+      "p50": NaN,
+      "p75": NaN
+    },
+    "DIGITAL_ALOG_YN": {
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "p25": NaN,
+      "p50": NaN,
+      "p75": NaN
+    },
+    "TV_I_CNT": {
+      "mean": 2.307707567031905,
+      "std": 3.333837475193377,
+      "min": 0.0,
+      "max": 275.0,
+      "p25": 1.0,
+      "p50": 2.0,
+      "p75": 3.0
+    },
+    "CH_LAST_DAYS_BF_GRP": {
+      "mean": 3.388892170588837,
+      "std": 1.267686326684808,
+      "min": 0.0,
+      "max": 5.0,
+      "p25": 4.0,
+      "p50": 4.0,
+      "p75": 4.0
+    },
+    "VOC_TOTAL_MONTH1_YN": {
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "p25": NaN,
+      "p50": NaN,
+      "p75": NaN
+    },
+    "VOC_STOP_CANCEL_MONTH1_YN": {
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "p25": NaN,
+      "p50": NaN,
+      "p75": NaN
+    },
+    "AGE_GRP10": {
+      "mean": 5.820198353781753,
+      "std": 1.4638102254145011,
+      "min": 0.0,
+      "max": 10.0,
+      "p25": 5.0,
+      "p50": 6.0,
+      "p75": 7.0
+    },
+    "EMAIL_RECV_CLS_NM": {
+      "mean": 3.005995224979634,
+      "std": 12.939072627337818,
+      "min": 0.0,
+      "max": 255.0,
+      "p25": 2.0,
+      "p50": 2.0,
+      "p75": 3.0
+    },
+    "SMS_SEND_CLS_NM": {
+      "mean": 2.2014911358835376,
+      "std": 0.5202608175664438,
+      "min": 0.0,
+      "max": 3.0,
+      "p25": 2.0,
+      "p50": 2.0,
+      "p75": 2.0
+    },
+    "CH_HH_AVG_MONTH1": {
+      "mean": 4.395049050638492,
+      "std": 4.094139130096235,
+      "min": 0.0,
+      "max": 29.58,
+      "p25": 0.96,
+      "p50": 3.43,
+      "p75": 6.84
+    },
+    "CH_25_RATIO_MONTH1": {
+      "mean": 2.3647653971483886,
+      "std": 5.338796210279592,
+      "min": 0.0,
+      "max": 100.86,
+      "p25": 0.0,
+      "p50": 0.74,
+      "p75": 2.82
+    },
+    "CH_25_RATIO_MEAN_3MM": {
+      "mean": 2.3645059008883513,
+      "std": 5.3377689749757735,
+      "min": 0.0,
+      "max": 100.0,
+      "p25": 0.0,
+      "p50": 0.74,
+      "p75": 2.82
+    },
+    "CH_FAV_RNK1": {
+      "mean": 9.495396019875933,
+      "std": 3.9664905729151174,
+      "min": 0.0,
+      "max": 13.0,
+      "p25": 7.0,
+      "p50": 12.0,
+      "p75": 12.0
+    },
+    "KIDS_USE_PV_MONTH1": {
+      "mean": 0.3895543667293449,
+      "std": 3.934812319852051,
+      "min": 0.0,
+      "max": 1398.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0
+    },
+    "NFX_USE_YN": {
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "p25": NaN,
+      "p50": NaN,
+      "p75": NaN
+    },
+    "YTB_USE_YN": {
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "p25": NaN,
+      "p50": NaN,
+      "p75": NaN
+    },
+    "p_mt": {
+      "mean": 202307.56469553075,
+      "std": 12.31833137967137,
+      "min": 202302.0,
+      "max": 202499.0,
+      "p25": 202304.0,
+      "p50": 202307.0,
+      "p75": 202310.0
+    },
+    "cancel_yn": {
+      "mean": 0.19999982366985353,
+      "std": 0.3999999559174026,
+      "min": 0.0,
+      "max": 1.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0
+    },
+    "vod_view_cnt": {
+      "mean": 49.806166441551845,
+      "std": 525.2017430729018,
+      "min": 0.0,
+      "max": 102558.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 2.0
+    },
+    "vod_use_tms_sum": {
+      "mean": 70825.37472845157,
+      "std": 637036.4049376006,
+      "min": 0.0,
+      "max": 84210265.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 234.0
+    },
+    "vod_asset_cnt": {
+      "mean": 10.493597011556679,
+      "std": 74.73977702815546,
+      "min": 0.0,
+      "max": 10305.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 1.0
+    },
+    "Flag_Kids": {
+      "mean": 0.04696200790664377,
+      "std": 0.21155755115302208,
+      "min": 0.0,
+      "max": 1.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0
+    },
+    "Flag_Movie": {
+      "mean": 0.18406839493720883,
+      "std": 0.387540045838897,
+      "min": 0.0,
+      "max": 1.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0
+    },
+    "Recency": {
+      "mean": 750.8847506162739,
+      "std": 394.0362784978535,
+      "min": 31.0,
+      "max": 999.0,
+      "p25": 268.0,
+      "p50": 999.0,
+      "p75": 999.0
+    },
+    "Total_Watch_Time": {
+      "mean": 70825.37472845157,
+      "std": 637036.4049376006,
+      "min": 0.0,
+      "max": 84210265.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 234.0
+    },
+    "Log_Watch_Time": {
+      "mean": 2.707877377183079,
+      "std": 4.634673395126465,
+      "min": 0.0,
+      "max": 18.248827395770927,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 5.459585514144159
+    },
+    "Is_Netflix": {
+      "mean": 0.06871365394856097,
+      "std": 0.2529666300501833,
+      "min": 0.0,
+      "max": 1.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0
+    },
+    "Risk_Segment_Kids_NFX": {
+      "mean": 0.011324803656381917,
+      "std": 0.10581378650371057,
+      "min": 0.0,
+      "max": 1.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0
+    }
+  },
+  "target_distribution": {
+    "0": 0.8000001763301464,
+    "1": 0.19999982366985353
+  },
+  "cardinality": {
+    "sha2_hash": 1361511,
+    "SVC_USE_DAYS_GRP": 5,
+    "MEDIA_NM_GRP": 3,
+    "PROD_NM_GRP": 6,
+    "PROD_OLD_YN": 2,
+    "PROD_ONE_PLUS_YN": 2,
+    "AGMT_KIND_NM": 7,
+    "STB_RES_1M_YN": 2,
+    "SVOD_SCRB_CNT_GRP": 4,
+    "PAID_CHNL_CNT_GRP": 4,
+    "SCRB_PATH_NM_GRP": 10,
+    "INHOME_RATE": 12,
+    "AGMT_END_SEG": 14,
+    "AGMT_END_YMD": 6477,
+    "TOTAL_USED_DAYS": 10289,
+    "TV_SCRB": 62,
+    "ANALOG_SCRB": 17,
+    "DIGITAL_SCRB": 60,
+    "TOTAL_INTERNET_SCRB": 35,
+    "GIGA_INTERNET_SCRB": 23,
+    "BUNDLE_YN": 2,
+    "DIGITAL_GIGA_YN": 2,
+    "DIGITAL_ALOG_YN": 2,
+    "TV_I_CNT": 73,
+    "CH_LAST_DAYS_BF_GRP": 6,
+    "VOC_TOTAL_MONTH1_YN": 2,
+    "VOC_STOP_CANCEL_MONTH1_YN": 2,
+    "AGE_GRP10": 11,
+    "EMAIL_RECV_CLS_NM": 5,
+    "SMS_SEND_CLS_NM": 4,
+    "CH_HH_AVG_MONTH1": 2404,
+    "CH_25_RATIO_MONTH1": 7680,
+    "CH_25_RATIO_MEAN_3MM": 7677,
+    "CH_FAV_RNK1": 14,
+    "KIDS_USE_PV_MONTH1": 264,
+    "NFX_USE_YN": 2,
+    "YTB_USE_YN": 2,
+    "p_mt": 16,
+    "cancel_yn": 2,
+    "vod_view_cnt": 4309,
+    "vod_use_tms_sum": 148591,
+    "vod_asset_cnt": 1858,
+    "Flag_Kids": 2,
+    "Flag_Movie": 2,
+    "Recency": 269,
+    "Total_Watch_Time": 148591,
+    "Log_Watch_Time": 148591,
+    "Is_Netflix": 2,
+    "Risk_Segment_Kids_NFX": 2
+  },
+  "warnings": []
+}

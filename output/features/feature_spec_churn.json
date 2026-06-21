@@ -1,0 +1,74 @@
+{
+  "Flag_Kids": {
+    "formula": "vod_log.CT_CL == 14 인 시청 기록 존재 여부",
+    "source_cols": [
+      "CT_CL"
+    ],
+    "rationale": "키즈 콘텐츠 시청 가구는 해지 패턴이 다름 (TDD v2)",
+    "version": "v2",
+    "dtype": "int32",
+    "present": true
+  },
+  "Flag_Movie": {
+    "formula": "vod_log.CT_CL == 12 인 시청 기록 존재 여부",
+    "source_cols": [
+      "CT_CL"
+    ],
+    "rationale": "영화 콘텐츠 시청 여부 — 콘텐츠 선호 세분화 (TDD v2)",
+    "version": "v2",
+    "dtype": "int32",
+    "present": true
+  },
+  "Recency": {
+    "formula": "기준일(p_mt) - 마지막 VOD 시청일",
+    "source_cols": [
+      "p_mt",
+      "vod_log.STRT_DT"
+    ],
+    "rationale": "최근성 — 시청 안한지 오래될수록 해지 위험 (TDD v2)",
+    "version": "v2",
+    "dtype": "int32",
+    "present": true
+  },
+  "Total_Watch_Time": {
+    "formula": "sum(vod_log.use_tms) — vod_use_tms_sum 의 정제판",
+    "source_cols": [
+      "vod_use_tms_sum"
+    ],
+    "rationale": "총 시청시간 — TV 시청 감소가 VOD 로 이동했는지 확인 (TDD v2)",
+    "version": "v2",
+    "dtype": "int64",
+    "present": true
+  },
+  "Log_Watch_Time": {
+    "formula": "ln(1 + Total_Watch_Time)",
+    "source_cols": [
+      "Total_Watch_Time"
+    ],
+    "rationale": "시청시간 우측 꼬리분포 완화 (TDD v2). 트리모델엔 Total_Watch_Time 과 정보량 동일",
+    "version": "v2",
+    "dtype": "float64",
+    "present": true
+  },
+  "Is_Netflix": {
+    "formula": "NFX_USE_YN 의 정제판 (0/1)",
+    "source_cols": [
+      "NFX_USE_YN"
+    ],
+    "rationale": "OTT 동시이용 — TV→VOD/OTT 확장 가설 검증 (TDD v2)",
+    "version": "v2",
+    "dtype": "int32",
+    "present": true
+  },
+  "Risk_Segment_Kids_NFX": {
+    "formula": "Flag_Kids == 1 AND Is_Netflix == 1",
+    "source_cols": [
+      "Flag_Kids",
+      "Is_Netflix"
+    ],
+    "rationale": "키즈+넷플릭스 동시 이용 고위험 세그먼트 (EDA 인사이트)",
+    "version": "v2",
+    "dtype": "int32",
+    "present": true
+  }
+}

@@ -1,0 +1,603 @@
+{
+  "table": "vod_purchase_dataset",
+  "row_count": 2259416,
+  "col_count": 47,
+  "dtypes_map": {
+    "sha2_hash": "str",
+    "SVC_USE_DAYS_GRP": "int32",
+    "MEDIA_NM_GRP": "int32",
+    "PROD_NM_GRP": "int32",
+    "PROD_OLD_YN": "bool",
+    "PROD_ONE_PLUS_YN": "bool",
+    "AGMT_KIND_NM": "int32",
+    "STB_RES_1M_YN": "bool",
+    "SVOD_SCRB_CNT_GRP": "int32",
+    "PAID_CHNL_CNT_GRP": "int32",
+    "SCRB_PATH_NM_GRP": "int32",
+    "INHOME_RATE": "int32",
+    "AGMT_END_SEG": "int32",
+    "AGMT_END_YMD": "float64",
+    "TOTAL_USED_DAYS": "int64",
+    "TV_SCRB": "int64",
+    "ANALOG_SCRB": "float64",
+    "DIGITAL_SCRB": "int64",
+    "TOTAL_INTERNET_SCRB": "int64",
+    "GIGA_INTERNET_SCRB": "int64",
+    "BUNDLE_YN": "bool",
+    "DIGITAL_GIGA_YN": "bool",
+    "DIGITAL_ALOG_YN": "bool",
+    "TV_I_CNT": "float64",
+    "CH_LAST_DAYS_BF_GRP": "int32",
+    "VOC_TOTAL_MONTH1_YN": "bool",
+    "VOC_STOP_CANCEL_MONTH1_YN": "bool",
+    "AGE_GRP10": "int32",
+    "EMAIL_RECV_CLS_NM": "int32",
+    "SMS_SEND_CLS_NM": "int32",
+    "CH_HH_AVG_MONTH1": "float64",
+    "CH_25_RATIO_MONTH1": "float64",
+    "CH_25_RATIO_MEAN_3MM": "float64",
+    "CH_FAV_RNK1": "int32",
+    "KIDS_USE_PV_MONTH1": "float64",
+    "NFX_USE_YN": "bool",
+    "YTB_USE_YN": "bool",
+    "p_mt": "int64",
+    "cancel_yn": "int32",
+    "vod_view_cnt": "int64",
+    "vod_use_tms_sum": "int64",
+    "vod_asset_cnt": "int64",
+    "fod_cnt": "int64",
+    "rvod_cnt": "int64",
+    "svod_cnt": "int64",
+    "vod_purchase_cnt": "int64",
+    "lagged_rvod_cnt": "int64"
+  },
+  "missing": {
+    "sha2_hash": 0.0,
+    "SVC_USE_DAYS_GRP": 0.0,
+    "MEDIA_NM_GRP": 0.0,
+    "PROD_NM_GRP": 0.0,
+    "PROD_OLD_YN": 0.0,
+    "PROD_ONE_PLUS_YN": 0.0,
+    "AGMT_KIND_NM": 0.0,
+    "STB_RES_1M_YN": 0.0,
+    "SVOD_SCRB_CNT_GRP": 0.0,
+    "PAID_CHNL_CNT_GRP": 0.0,
+    "SCRB_PATH_NM_GRP": 0.0,
+    "INHOME_RATE": 0.0,
+    "AGMT_END_SEG": 0.0,
+    "AGMT_END_YMD": 0.007821932747223176,
+    "TOTAL_USED_DAYS": 0.0,
+    "TV_SCRB": 0.0,
+    "ANALOG_SCRB": 0.003612437904308016,
+    "DIGITAL_SCRB": 0.0,
+    "TOTAL_INTERNET_SCRB": 0.0,
+    "GIGA_INTERNET_SCRB": 0.0,
+    "BUNDLE_YN": 0.0,
+    "DIGITAL_GIGA_YN": 0.0,
+    "DIGITAL_ALOG_YN": 0.0,
+    "TV_I_CNT": 0.0,
+    "CH_LAST_DAYS_BF_GRP": 0.0,
+    "VOC_TOTAL_MONTH1_YN": 0.0,
+    "VOC_STOP_CANCEL_MONTH1_YN": 0.0,
+    "AGE_GRP10": 0.0,
+    "EMAIL_RECV_CLS_NM": 0.0,
+    "SMS_SEND_CLS_NM": 0.0,
+    "CH_HH_AVG_MONTH1": 0.0,
+    "CH_25_RATIO_MONTH1": 0.0,
+    "CH_25_RATIO_MEAN_3MM": 0.0,
+    "CH_FAV_RNK1": 0.0,
+    "KIDS_USE_PV_MONTH1": 0.0012976804625620072,
+    "NFX_USE_YN": 0.0,
+    "YTB_USE_YN": 0.0,
+    "p_mt": 0.0,
+    "cancel_yn": 0.0,
+    "vod_view_cnt": 0.0,
+    "vod_use_tms_sum": 0.0,
+    "vod_asset_cnt": 0.0,
+    "fod_cnt": 0.0,
+    "rvod_cnt": 0.0,
+    "svod_cnt": 0.0,
+    "vod_purchase_cnt": 0.0,
+    "lagged_rvod_cnt": 0.0
+  },
+  "basic_stats": {
+    "sha2_hash": {
+      "top_k": [
+        {
+          "value": "f2a983dc81dba073b291ad0d8c9b3d164fe9fd51eefcf64272f5005f1221212b",
+          "count": 13
+        },
+        {
+          "value": "f297cd66240362f6f72326088b8ea4739ceb60fde267f40f44bc4bd35e8e9575",
+          "count": 12
+        },
+        {
+          "value": "f4eb989645dab3968df798f2c90373171bf09ab1b0e617f2713a7dee5fdf14dc",
+          "count": 12
+        },
+        {
+          "value": "508b23e8c39931816646ff25ad1db4b6581b6c2f5ec8b2af1950c66548300a7a",
+          "count": 12
+        },
+        {
+          "value": "c4b852a7fc6289537a0a873eec57ef216ceb90e67ef9790b0377acf1dc4939b3",
+          "count": 12
+        }
+      ]
+    },
+    "SVC_USE_DAYS_GRP": {
+      "mean": 1.862801272541223,
+      "std": 0.8808817073091386,
+      "min": 0.0,
+      "max": 4.0,
+      "p25": 2.0,
+      "p50": 2.0,
+      "p75": 2.0
+    },
+    "MEDIA_NM_GRP": {
+      "mean": 0.2810474033998166,
+      "std": 0.45700798613984694,
+      "min": 0.0,
+      "max": 2.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 1.0
+    },
+    "PROD_NM_GRP": {
+      "mean": 2.6455243301808964,
+      "std": 1.7339828976353624,
+      "min": 0.0,
+      "max": 5.0,
+      "p25": 1.0,
+      "p50": 1.0,
+      "p75": 4.0
+    },
+    "PROD_OLD_YN": {
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "p25": NaN,
+      "p50": NaN,
+      "p75": NaN
+    },
+    "PROD_ONE_PLUS_YN": {
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "p25": NaN,
+      "p50": NaN,
+      "p75": NaN
+    },
+    "AGMT_KIND_NM": {
+      "mean": 2.515571722958499,
+      "std": 2.222454558009678,
+      "min": 0.0,
+      "max": 6.0,
+      "p25": 0.0,
+      "p50": 2.0,
+      "p75": 5.0
+    },
+    "STB_RES_1M_YN": {
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "p25": NaN,
+      "p50": NaN,
+      "p75": NaN
+    },
+    "SVOD_SCRB_CNT_GRP": {
+      "mean": 0.031983485998151734,
+      "std": 0.22333149632608576,
+      "min": 0.0,
+      "max": 3.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0
+    },
+    "PAID_CHNL_CNT_GRP": {
+      "mean": 0.04389187294415902,
+      "std": 0.23536043603565113,
+      "min": 0.0,
+      "max": 3.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0
+    },
+    "SCRB_PATH_NM_GRP": {
+      "mean": 4.504717590740262,
+      "std": 3.8803056128280233,
+      "min": 0.0,
+      "max": 9.0,
+      "p25": 1.0,
+      "p50": 4.0,
+      "p75": 9.0
+    },
+    "INHOME_RATE": {
+      "mean": 4.154844880269946,
+      "std": 3.5934206740670365,
+      "min": 0.0,
+      "max": 11.0,
+      "p25": 1.0,
+      "p50": 4.0,
+      "p75": 6.0
+    },
+    "AGMT_END_SEG": {
+      "mean": 5.733829892326159,
+      "std": 3.5764871349835703,
+      "min": 1.0,
+      "max": 14.0,
+      "p25": 2.0,
+      "p50": 6.0,
+      "p75": 9.0
+    },
+    "AGMT_END_YMD": {
+      "mean": 20223885.44242538,
+      "std": 33230.666855719835,
+      "min": 20041013.0,
+      "max": 20271230.0,
+      "p25": 20200515.0,
+      "p50": 20240202.0,
+      "p75": 20250516.0
+    },
+    "TOTAL_USED_DAYS": {
+      "mean": 2717.933234074646,
+      "std": 1229.8017440202102,
+      "min": 0.0,
+      "max": 45289.0,
+      "p25": 2003.0,
+      "p50": 2873.0,
+      "p75": 3628.0
+    },
+    "TV_SCRB": {
+      "mean": 1.7936674786759057,
+      "std": 2.73166145190728,
+      "min": 1.0,
+      "max": 235.0,
+      "p25": 1.0,
+      "p50": 2.0,
+      "p75": 2.0
+    },
+    "ANALOG_SCRB": {
+      "mean": 0.02024693792881656,
+      "std": 0.18370488256375617,
+      "min": 0.0,
+      "max": 20.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0
+    },
+    "DIGITAL_SCRB": {
+      "mean": 1.7734202112404267,
+      "std": 2.718375530975274,
+      "min": 1.0,
+      "max": 235.0,
+      "p25": 1.0,
+      "p50": 1.0,
+      "p75": 2.0
+    },
+    "TOTAL_INTERNET_SCRB": {
+      "mean": 0.5168800256349428,
+      "std": 0.9979742412847242,
+      "min": 0.0,
+      "max": 102.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 1.0
+    },
+    "GIGA_INTERNET_SCRB": {
+      "mean": 0.14731373062773742,
+      "std": 0.38268516138227743,
+      "min": 0.0,
+      "max": 50.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0
+    },
+    "BUNDLE_YN": {
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "p25": NaN,
+      "p50": NaN,
+      "p75": NaN
+    },
+    "DIGITAL_GIGA_YN": {
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "p25": NaN,
+      "p50": NaN,
+      "p75": NaN
+    },
+    "DIGITAL_ALOG_YN": {
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "p25": NaN,
+      "p50": NaN,
+      "p75": NaN
+    },
+    "TV_I_CNT": {
+      "mean": 2.307529025199432,
+      "std": 3.334798920534071,
+      "min": 0.0,
+      "max": 275.0,
+      "p25": 1.0,
+      "p50": 2.0,
+      "p75": 3.0
+    },
+    "CH_LAST_DAYS_BF_GRP": {
+      "mean": 3.3889279353602877,
+      "std": 1.2676152760705046,
+      "min": 0.0,
+      "max": 5.0,
+      "p25": 4.0,
+      "p50": 4.0,
+      "p75": 4.0
+    },
+    "VOC_TOTAL_MONTH1_YN": {
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "p25": NaN,
+      "p50": NaN,
+      "p75": NaN
+    },
+    "VOC_STOP_CANCEL_MONTH1_YN": {
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "p25": NaN,
+      "p50": NaN,
+      "p75": NaN
+    },
+    "AGE_GRP10": {
+      "mean": 5.820207522651871,
+      "std": 1.4638576756167125,
+      "min": 0.0,
+      "max": 10.0,
+      "p25": 5.0,
+      "p50": 6.0,
+      "p75": 7.0
+    },
+    "EMAIL_RECV_CLS_NM": {
+      "mean": 3.0086048784287622,
+      "std": 12.964867675118747,
+      "min": 0.0,
+      "max": 255.0,
+      "p25": 2.0,
+      "p50": 2.0,
+      "p75": 3.0
+    },
+    "SMS_SEND_CLS_NM": {
+      "mean": 2.201442762200498,
+      "std": 0.5202620512082273,
+      "min": 0.0,
+      "max": 3.0,
+      "p25": 2.0,
+      "p50": 2.0,
+      "p75": 2.0
+    },
+    "CH_HH_AVG_MONTH1": {
+      "mean": 4.39531479373431,
+      "std": 4.094159955316489,
+      "min": 0.0,
+      "max": 29.58,
+      "p25": 0.96,
+      "p50": 3.43,
+      "p75": 6.84
+    },
+    "CH_25_RATIO_MONTH1": {
+      "mean": 2.364784426595191,
+      "std": 5.33884753566909,
+      "min": 0.0,
+      "max": 100.86,
+      "p25": 0.0,
+      "p50": 0.74,
+      "p75": 2.82
+    },
+    "CH_25_RATIO_MEAN_3MM": {
+      "mean": 2.3645238902442043,
+      "std": 5.337816193508408,
+      "min": 0.0,
+      "max": 100.0,
+      "p25": 0.0,
+      "p50": 0.74,
+      "p75": 2.82
+    },
+    "CH_FAV_RNK1": {
+      "mean": 9.495139009372334,
+      "std": 3.966543305158011,
+      "min": 0.0,
+      "max": 13.0,
+      "p25": 7.0,
+      "p50": 12.0,
+      "p75": 12.0
+    },
+    "KIDS_USE_PV_MONTH1": {
+      "mean": 0.3894523515345112,
+      "std": 3.93842258713834,
+      "min": 0.0,
+      "max": 1398.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0
+    },
+    "NFX_USE_YN": {
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "p25": NaN,
+      "p50": NaN,
+      "p75": NaN
+    },
+    "YTB_USE_YN": {
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "p25": NaN,
+      "p50": NaN,
+      "p75": NaN
+    },
+    "p_mt": {
+      "mean": 202306.81064708758,
+      "std": 3.1496506398860915,
+      "min": 202302.0,
+      "max": 202312.0,
+      "p25": 202304.0,
+      "p50": 202307.0,
+      "p75": 202310.0
+    },
+    "cancel_yn": {
+      "mean": 0.20031459456779982,
+      "std": 0.4002358413101292,
+      "min": 0.0,
+      "max": 1.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0
+    },
+    "vod_view_cnt": {
+      "mean": 49.82098515722647,
+      "std": 525.7519664783582,
+      "min": 0.0,
+      "max": 102558.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 2.0
+    },
+    "vod_use_tms_sum": {
+      "mean": 70823.35109515025,
+      "std": 637185.1807952436,
+      "min": 0.0,
+      "max": 84210265.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 235.0
+    },
+    "vod_asset_cnt": {
+      "mean": 10.494325082233638,
+      "std": 74.78013185890292,
+      "min": 0.0,
+      "max": 10305.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 1.0
+    },
+    "fod_cnt": {
+      "mean": 0.938824014701144,
+      "std": 14.177392670561806,
+      "min": 0.0,
+      "max": 5615.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0
+    },
+    "rvod_cnt": {
+      "mean": 0.6657919568596486,
+      "std": 13.009004429170872,
+      "min": 0.0,
+      "max": 3590.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0
+    },
+    "svod_cnt": {
+      "mean": 0.23843152389821087,
+      "std": 8.427630460972178,
+      "min": 0.0,
+      "max": 2471.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0
+    },
+    "vod_purchase_cnt": {
+      "mean": 0.6657919568596486,
+      "std": 13.009004429170872,
+      "min": 0.0,
+      "max": 3590.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0
+    },
+    "lagged_rvod_cnt": {
+      "mean": 0.7451248464204909,
+      "std": 13.978173046039878,
+      "min": 0.0,
+      "max": 4028.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0
+    }
+  },
+  "target_distribution": {
+    "count": 2259416.0,
+    "mean": 0.6657919568596486,
+    "std": 13.009004429170872,
+    "min": 0.0,
+    "25%": 0.0,
+    "50%": 0.0,
+    "75%": 0.0,
+    "max": 3590.0
+  },
+  "cardinality": {
+    "sha2_hash": 1358117,
+    "SVC_USE_DAYS_GRP": 5,
+    "MEDIA_NM_GRP": 3,
+    "PROD_NM_GRP": 6,
+    "PROD_OLD_YN": 2,
+    "PROD_ONE_PLUS_YN": 2,
+    "AGMT_KIND_NM": 7,
+    "STB_RES_1M_YN": 2,
+    "SVOD_SCRB_CNT_GRP": 4,
+    "PAID_CHNL_CNT_GRP": 4,
+    "SCRB_PATH_NM_GRP": 10,
+    "INHOME_RATE": 12,
+    "AGMT_END_SEG": 14,
+    "AGMT_END_YMD": 6477,
+    "TOTAL_USED_DAYS": 10282,
+    "TV_SCRB": 61,
+    "ANALOG_SCRB": 16,
+    "DIGITAL_SCRB": 60,
+    "TOTAL_INTERNET_SCRB": 35,
+    "GIGA_INTERNET_SCRB": 22,
+    "BUNDLE_YN": 2,
+    "DIGITAL_GIGA_YN": 2,
+    "DIGITAL_ALOG_YN": 2,
+    "TV_I_CNT": 73,
+    "CH_LAST_DAYS_BF_GRP": 6,
+    "VOC_TOTAL_MONTH1_YN": 2,
+    "VOC_STOP_CANCEL_MONTH1_YN": 2,
+    "AGE_GRP10": 11,
+    "EMAIL_RECV_CLS_NM": 5,
+    "SMS_SEND_CLS_NM": 4,
+    "CH_HH_AVG_MONTH1": 2404,
+    "CH_25_RATIO_MONTH1": 7672,
+    "CH_25_RATIO_MEAN_3MM": 7669,
+    "CH_FAV_RNK1": 14,
+    "KIDS_USE_PV_MONTH1": 264,
+    "NFX_USE_YN": 2,
+    "YTB_USE_YN": 2,
+    "p_mt": 11,
+    "cancel_yn": 2,
+    "vod_view_cnt": 4306,
+    "vod_use_tms_sum": 148391,
+    "vod_asset_cnt": 1858,
+    "fod_cnt": 557,
+    "rvod_cnt": 653,
+    "svod_cnt": 531,
+    "vod_purchase_cnt": 653,
+    "lagged_rvod_cnt": 689
+  },
+  "warnings": []
+}

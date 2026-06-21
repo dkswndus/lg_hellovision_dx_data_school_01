@@ -1,0 +1,36 @@
+{
+  "fod_cnt": {
+    "formula": "월별 FOD(무료 VOD) 시청 건수",
+    "source_cols": [
+      "vod_log.PROD_TYPE",
+      "p_mt"
+    ],
+    "rationale": "RVOD/FOD/SVOD 미분리 시 R2 0.293 → 분리 후 0.624 (TDD-ml-cycle Green)",
+    "version": "v2",
+    "dtype": "int64",
+    "present": true
+  },
+  "svod_cnt": {
+    "formula": "월별 SVOD(구독형) 시청 건수",
+    "source_cols": [
+      "vod_log.PROD_TYPE",
+      "p_mt"
+    ],
+    "rationale": "구독형 VOD 별도 집계 — RVOD 구매와 대체관계 포착 (TDD v2)",
+    "version": "v2",
+    "dtype": "int64",
+    "present": true
+  },
+  "lagged_rvod_cnt": {
+    "formula": "shift(rvod_cnt, 1) — 직전월 RVOD 건수",
+    "source_cols": [
+      "rvod_cnt",
+      "p_mt",
+      "sha2_hash"
+    ],
+    "rationale": "구매 습관의 자기상관 포착 (lag feature), 시점누수 없음 (직전월만 사용)",
+    "version": "v2",
+    "dtype": "int64",
+    "present": true
+  }
+}

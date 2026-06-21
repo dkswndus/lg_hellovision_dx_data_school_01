@@ -1,0 +1,34 @@
+{
+  "task": "churn",
+  "gate_pass": false,
+  "winner_model": "xgboost",
+  "winner_metric": 0.4750886655701853,
+  "metric_name": "Val PRC-AUC",
+  "per_model": [
+    {
+      "모델": "xgboost",
+      "gate_pass": false,
+      "reason": "PRC-AUC 0.4751 < 0.5"
+    },
+    {
+      "모델": "catboost",
+      "gate_pass": false,
+      "reason": "PRC-AUC 0.4685 < 0.5"
+    },
+    {
+      "모델": "random_forest",
+      "gate_pass": false,
+      "reason": "PRC-AUC 0.4421 < 0.5"
+    },
+    {
+      "모델": "lightgbm",
+      "gate_pass": false,
+      "reason": "PRC-AUC 0.4415 < 0.5"
+    },
+    {
+      "모델": "baseline",
+      "gate_pass": false,
+      "reason": "PRC-AUC 0.3486 < 0.5"
+    }
+  ]
+}

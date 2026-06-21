@@ -1,0 +1,53 @@
+{
+  "task": "vod_purchase",
+  "leakage_severity": "critical",
+  "high_corr_features": [],
+  "temporal_leakage": [
+    {
+      "col": "AGMT_END_SEG",
+      "p_mt_basis": "N/A",
+      "evidence": "컬럼명에 종료/해지/중단 신호 포함 — 라벨링 시점 이후 갱신값일 위험, 검토 필요"
+    },
+    {
+      "col": "AGMT_END_YMD",
+      "p_mt_basis": "N/A",
+      "evidence": "컬럼명에 종료/해지/중단 신호 포함 — 라벨링 시점 이후 갱신값일 위험, 검토 필요"
+    },
+    {
+      "col": "VOC_STOP_CANCEL_MONTH1_YN",
+      "p_mt_basis": "N/A",
+      "evidence": "컬럼명에 종료/해지/중단 신호 포함 — 라벨링 시점 이후 갱신값일 위험, 검토 필요"
+    }
+  ],
+  "duplicate_key_count": 12180,
+  "duplicate_keys_sample": {
+    "('000d21252d8da15f449e37bd7d7eaf72d719d87f83443a5dfa72cb9073c87b8e', 202311)": 2,
+    "('001469d1eaa8e8ed0ec93a35888dfe430a34fd82c1356f0bb7e8919eecb89c1f', 202303)": 2,
+    "('001469d1eaa8e8ed0ec93a35888dfe430a34fd82c1356f0bb7e8919eecb89c1f', 202304)": 2,
+    "('001469d1eaa8e8ed0ec93a35888dfe430a34fd82c1356f0bb7e8919eecb89c1f', 202309)": 2,
+    "('00156d0df142dae09948458e3f3dae7c3cff14327beed8c7d938f25d609b8553', 202311)": 2,
+    "('0018762c2e292e4e11e44fbd70d0dc5b64b881e6c91ea621c96ac90e39d3ca87', 202308)": 2,
+    "('00194ce16f6a27e1671ce4a5f3be8fd94f70fc12e00fcae181ee52ed39004425', 202302)": 2,
+    "('00207be40e995924d0afb48bc3e73e319a624531edd949d45510f490070e16c2', 202307)": 2,
+    "('0020e37dc7e3313e99157b763460c96d07c8b5e6651bddb842e62cd32be8aa5d', 202305)": 2,
+    "('0025e7e68d43ab35c7f528fd1223dbd9c4fda545d07a8f3f07013127bc5a8a19', 202309)": 2,
+    "('002e79dfcff2aeaec855ca3fa0a6de565286780db740b4cd552cf80fd3ba2cba', 202304)": 2,
+    "('00352b16807bd30d2b57466f34e3df11bee1e053f887bdf340bfa67cc44ef8a1', 202309)": 2,
+    "('003dc78b5ea3bb5574a12201269b1945dda21ceb0a37ae0eca463c21f3fce0a6', 202305)": 2,
+    "('0046d585831144db718069831f0e42c4aabd5240273e4bd68606180faea19fdc', 202310)": 2,
+    "('004dde75bf0be645c2c8b50785f4edfe4ce574f38d3471bc5c061538ec6a89c6', 202307)": 2,
+    "('005a5e0e3c3d8cf926150bfccf26400cbabb7407686fb9cdab89d9501d28b556', 202311)": 2,
+    "('005d869db979f76c3126a703589be6385294f39139e8880feeea2b55672db9eb', 202310)": 2,
+    "('005ea0e4e6dfe36a8f0a028832c9257772c899816cd2f994920f0640a6a977c2', 202306)": 2,
+    "('0063aa6cc1bb7ec4c6099c733355e05e43ace20576e10978ba7b2a71faaa4715', 202304)": 2,
+    "('0063aa6cc1bb7ec4c6099c733355e05e43ace20576e10978ba7b2a71faaa4715', 202307)": 2
+  },
+  "feature_dominance": [],
+  "id_leak_warnings": [],
+  "data_quality_issues": [],
+  "drop_recommendations": [
+    "AGMT_END_SEG",
+    "AGMT_END_YMD",
+    "VOC_STOP_CANCEL_MONTH1_YN"
+  ]
+}
